@@ -1,32 +1,27 @@
 <article class="twat card">
   <header class="head">
-    <img src="/images/avatar2.png">
-    <a href="#"><h1>@Jane Smith</h1></a>
-    <button><i class="fas fa-ban"></i><span class="sr-only">Block</span></button>
+    <img src="<%= image_url %>">
+    <h1>
+      <a href="/users/<%= username %>">@<%= username %></a>
+    </h1>
+    <button>
+      <i class="fas fa-ban"></i>
+      <span class="sr-only">Block</span>
+    </button>
   </header>
   <section class="body">
-    <p>
-      Lorem ipsum dolor amet intelligentsia enamel pin pitchfork, aesthetic
-      readymade heirloom hexagon quinoa helvetica marfa yr humblebrag. Fixie
-      crucifix try-hard, cardigan ennui letterpress williamsburg cloud bread
-      truffaut quinoa iPhone VHS swag. Brunch woke banh mi kogi tote bag
-      before they sold out ennui. Man braid readymade franzen, gochujang
-      tumeric vaporware bushwick glossier hella 3 wolf moon leggings taiyaki.
-    </p>
-    <!--
-    < % = message % >
-     -->
+    <p><%= message %></p>
   </section>
   <footer class="foot actions">
     <button>
       <i class="far fa-heart"></i>
       <span class="sr-only">Like</span>
-      <span class="count">2</span>
+      <span class="count"><%= likes %></span>
     </button>
     <button>
       <i class="fas fa-retweet"></i>
-      Retwat
-      <span class="count">0</span>
+      <span class="sr-only">Retwat</span>
+      <span class="count"><%= retwats %></span>
     </button>
   </footer>
 </article>

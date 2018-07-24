@@ -13,7 +13,7 @@ class TwatterApp < Sinatra::Base
 
   # before { redirect "/login" unless session[:user_id] }
 
-  set(:views, File.join(ROOT, "/templates"))
+  set(:views, File.join(ROOT, "templates"))
 
   get("/") { erb :index }
   # map("/twats") { run TwatController }

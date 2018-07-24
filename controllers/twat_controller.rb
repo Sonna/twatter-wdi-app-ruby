@@ -2,10 +2,11 @@ require "controllers/application_controller"
 require "models/twat"
 
 class TwatController < ApplicationController
-  set :views, File.expand_path(ROOT, "/templates/twat")
+  set :views, File.expand_path(ROOT, "templates/twats")
 
-  get "/twats/" do
+  get "/twats" do
     @twats = Twat.all
+    erb :"templates/twats/index"
     erb :index
   end
 

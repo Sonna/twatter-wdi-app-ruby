@@ -13,6 +13,13 @@
     <p><%= message %></p>
   </section>
   <footer class="foot actions">
+    <form action="/twat/<%= twat_id %>" class="action">
+      <button>
+        <i class="far fa-comment-alt"></i>
+        <span class="sr-only">Comments</span>
+        <span class="count"><%= comments_count %></span>
+      </button>
+    </form>
     <form action="/likes" method="post" class="action">
       <input type="hidden" name="twat_id" value="<%= twat_id %>">
       <input type="hidden" name="user_id" value="REMOVE ME -> look at current_user object">
@@ -29,6 +36,13 @@
         <i class="fas fa-retweet"></i>
         <span class="sr-only">Retwat</span>
         <span class="count"><%= retwats %></span>
+      </button>
+    </form>
+    <form action="/messages/new" class="action">
+      <input type="hidden" name="twatter_id" value="<%= twatter_id %>">
+      <button>
+        <i class="far fa-envelope"></i>
+        <span class="sr-only">Direct Message</span>
       </button>
     </form>
   </footer>

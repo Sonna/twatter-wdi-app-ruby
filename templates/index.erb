@@ -16,11 +16,13 @@
   <h2>Recent Activity</h2>
   <%= erb :twat, locals: {
     twat_id: 1,
+    twatter_id: 32,
     name: "Jane Doe",
     username: "janedoe",
     image_url: "/images/avatar2.png",
     likes: 2,
     retwats: 1,
+    comments_count: 0,
     message: <<~MESSAGE
       Lorem ipsum dolor amet intelligentsia enamel pin pitchfork, aesthetic
       readymade heirloom hexagon quinoa helvetica marfa yr humblebrag. Fixie
@@ -33,11 +35,13 @@
 
   <%= erb :twat, locals: {
     twat_id: 2,
+    twatter_id: 1010,
     name: "John Doe",
     username: "johndoe",
     image_url: "/images/avatar3.png",
     likes: 42,
     retwats: 10,
+    comments_count: 7,
     message: <<~MESSAGE
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

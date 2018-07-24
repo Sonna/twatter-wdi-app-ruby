@@ -1,4 +1,6 @@
-ROOT = File.expand_path("../", __FILE__)
+# frozen_string_literal: true
+
+ROOT = File.expand_path(__dir__)
 $LOAD_PATH.push ROOT
 
 require "db_config"
@@ -10,13 +12,15 @@ require "models/like"
 require "models/retwat"
 
 class TwatterApp < Sinatra::Base
+  set :root, ROOT
+
   # middleware will run before filters
   use SessionsApp
   use TwatController
 
   # before { redirect "/login" unless session[:user_id] }
 
-  set(:views, File.join(ROOT, "templates"))
+  set(:views, File.join(settings.root, "templates"))
 
   get("/") { erb :index }
   # map("/twats") { run TwatController }

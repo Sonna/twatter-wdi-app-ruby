@@ -1,10 +1,14 @@
+# frozen_string_literal: true
+
+require "active_record"
 require "sinatra/base"
 
 require "apps/sessions/sessions_helpers"
 require "models/user"
 
 class SessionsApp < Sinatra::Base
-  set(:views, File.join(ROOT, "/templates/sessions"))
+  set :root, File.expand_path("../..", __dir__)
+  set(:views, File.join(settings.root, "/templates/sessions"))
 
   enable :sessions
 
@@ -14,7 +18,7 @@ class SessionsApp < Sinatra::Base
 
   post "/session" do
     user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])
+    if user&.authenticate(params[:password])
       session[:user_id] = user.id
       redirect "/"
     else

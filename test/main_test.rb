@@ -1,7 +1,8 @@
-$LOAD_PATH.push File.expand_path("../../", __FILE__)
+# frozen_string_literal: true
 
-require "minitest/autorun"
-require "rack/test"
+$LOAD_PATH.push File.expand_path("..", __dir__)
+
+require "test/test_helper"
 
 require "main"
 
@@ -14,7 +15,8 @@ class TwatterAppTest < Minitest::Test
 
   def test_my_default
     get "/"
-    assert_match "Twatter", last_response.body
+    assert last_response.ok?
+    assert last_response.body.include?("Twatter")
   end
 
   # def test_with_params

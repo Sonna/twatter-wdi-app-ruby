@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # require "bundler/gem_tasks"
-$LOAD_PATH.push File.expand_path("../", __FILE__)
+$LOAD_PATH.push File.expand_path(__dir__)
 
 require "rake/testtask"
 require "rubocop/rake_task"

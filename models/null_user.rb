@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class NullUser
   def email
     "null_user@sinatra.app"

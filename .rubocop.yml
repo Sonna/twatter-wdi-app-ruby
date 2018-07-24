@@ -1,0 +1,11 @@
+Style/Documentation:
+  Exclude:
+  - "spec/**/*"
+  - "test/**/*"
+  - "apps/**/*"
+  - "controllers/**/*"
+  - "main.rb"
+  - "models/**/*"
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes

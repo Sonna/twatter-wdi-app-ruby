@@ -1,7 +1,7 @@
 <section class="twats">
   <h2>All Twats</h2>
   <% @twats.each do |twat| %>
-    <%= erb :twat, locals: {
+    <%= erb :"twats/twat", locals: {
       twat_id: twat.id,
       twatter_id: twat.twatter.id,
       name: twat.twatter.name,

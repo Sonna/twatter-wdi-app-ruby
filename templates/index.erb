@@ -14,7 +14,7 @@
 
 <section class="timeline">
   <h2>Recent Activity</h2>
-  <%= erb :twat, locals: {
+  <%= erb :"twats/twat", locals: {
     twat_id: 1,
     twatter_id: 32,
     name: "Jane Doe",
@@ -33,7 +33,7 @@
     MESSAGE
   } %>
 
-  <%= erb :twat, locals: {
+  <%= erb :"twats/twat", locals: {
     twat_id: 2,
     twatter_id: 1010,
     name: "John Doe",

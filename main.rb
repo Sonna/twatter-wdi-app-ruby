@@ -4,16 +4,19 @@ $LOAD_PATH.push ROOT
 require "db_config"
 require "sinatra/base"
 require "apps/sessions"
+require "controllers/twat_controller"
 
 class TwatterApp < Sinatra::Base
   # middleware will run before filters
   use SessionsApp
+  use TwatController
 
   # before { redirect "/login" unless session[:user_id] }
 
   set(:views, File.join(ROOT, "/templates"))
 
   get("/") { erb :index }
+  # map("/twats") { run TwatController }
 
   # get("/users/:user") { erb :user }
 

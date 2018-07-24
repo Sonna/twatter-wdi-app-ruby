@@ -1,0 +1,8 @@
+<h1>edit twat</h1>
+
+<form action="/twats/<%= @twat['id'] %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <label for="message">message</label>
+  <input type="text" name="message" value="<%= @twat['message'] %>">
+  <button>post</button>
+</form>

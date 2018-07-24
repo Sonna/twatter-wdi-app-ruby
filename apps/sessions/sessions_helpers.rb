@@ -9,4 +9,9 @@ module SessionsHelpers
   def logged_in?
     !!current_user
   end
+
+  def authorized?
+    redirect to("/") unless logged_in?
+    current_user
+  end
 end

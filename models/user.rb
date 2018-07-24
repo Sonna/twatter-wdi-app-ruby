@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true
+
+  def image_url
+    "/images/avatar3.png"
+  end
 end

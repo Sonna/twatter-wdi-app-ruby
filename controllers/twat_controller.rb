@@ -1,40 +1,53 @@
+require "date"
+
 require "controllers/application_controller"
 require "models/twat"
 
 class TwatController < ApplicationController
-  set(:views, File.join(ROOT, "/templates/twats"))
+  set(:views, File.join(ROOT, "/templates"))
 
   get "/twats" do
     @twats = Twat.all
-    erb :index
+    erb :"twats/index", layout: :"layouts/default"
   end
 
   get "/twats/new" do
-    erb :new
+    authorized?
+    erb :"twats/new", layout: :"layouts/default"
   end
 
   get "/twats/:id" do
+    authorized?
     @twat = Twat.find(params[:id])
-    erb :show
+    erb :"twats/show", layout: :"layouts/default"
   end
 
-  post "/twats/twats" do
-    @twat = Twat.create(name: params[:name], image_url: params[:image_url])
-    redirect to("/#{@twat.id}")
+  post "/twats" do
+    authorized?
+    @twat = Twat.create(
+      message: params[:message],
+      user_id: current_user.id,
+      created_at: Date.today,
+      updated_at: Date.today
+    )
+    redirect to("/twats/#{@twat.id}")
   end
 
   get "/twats/:id/edit" do
+    authorized?
     @twat = Twat.find(params[:id])
-    erb :edit
+    erb :"twats/edit", layout: :"layouts/default"
   end
 
   put "/twats/:id" do
+    authorized?
     @twat = Twat.find(params[:id])
-    @twat&.update(params) # NOT SECURE!
-    redirect to("/#{@twat.id}")
+    @twat&.update(message: params[:message], updated_at: Date.today)
+    redirect to("/twats/#{@twat.id}")
   end
 
   delete "/twats/:id" do
+    authorized? # does not check User association
     Twat.destroy(params[:id])
     redirect to("/")
   end

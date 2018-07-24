@@ -5,6 +5,9 @@ require "db_config"
 require "sinatra/base"
 require "apps/sessions/sessions_app"
 require "controllers/twat_controller"
+require "models/comment"
+require "models/like"
+require "models/retwat"
 
 class TwatterApp < Sinatra::Base
   # middleware will run before filters

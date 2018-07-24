@@ -3,7 +3,7 @@ $LOAD_PATH.push ROOT
 
 require "db_config"
 require "sinatra/base"
-require "apps/sessions"
+require "apps/sessions/sessions_app"
 require "controllers/twat_controller"
 
 class TwatterApp < Sinatra::Base

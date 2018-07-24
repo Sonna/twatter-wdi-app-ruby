@@ -1,4 +1,6 @@
 require "sinatra/base"
+
+require "apps/sessions/sessions_helpers"
 require "models/user"
 
 class SessionsApp < Sinatra::Base
@@ -6,15 +8,7 @@ class SessionsApp < Sinatra::Base
 
   enable :sessions
 
-  helpers do
-    def current_user
-      User.find_by(id: session[:user_id])
-    end
-
-    def logged_in?
-      !!current_user
-    end
-  end
+  helpers SessionsHelpers
 
   get("/login") { erb :login }
 

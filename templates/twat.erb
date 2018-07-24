@@ -13,15 +13,23 @@
     <p><%= message %></p>
   </section>
   <footer class="foot actions">
-    <button>
-      <i class="far fa-heart"></i>
-      <span class="sr-only">Like</span>
-      <span class="count"><%= likes %></span>
-    </button>
-    <button>
-      <i class="fas fa-retweet"></i>
-      <span class="sr-only">Retwat</span>
-      <span class="count"><%= retwats %></span>
-    </button>
+    <form action="/likes" method="post" class="action">
+      <input type="hidden" name="twat_id" value="<%= twat_id %>">
+      <input type="hidden" name="user_id" value="REMOVE ME -> look at current_user object">
+      <button>
+        <i class="far fa-heart"></i>
+        <span class="sr-only">Like</span>
+        <span class="count"><%= likes %></span>
+      </button>
+    </form>
+    <form action="/retwats" method="post" class="action">
+      <input type="hidden" name="twat_id" value="<%= twat_id %>">
+      <input type="hidden" name="user_id" value="REMOVE ME -> look at current_user object">
+      <button>
+        <i class="fas fa-retweet"></i>
+        <span class="sr-only">Retwat</span>
+        <span class="count"><%= retwats %></span>
+      </button>
+    </form>
   </footer>
 </article>

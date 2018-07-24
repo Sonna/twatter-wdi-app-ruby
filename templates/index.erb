@@ -15,6 +15,7 @@
 <section class="timeline">
   <h2>Recent Activity</h2>
   <%= erb :twat, locals: {
+    twat_id: 1,
     name: "Jane Doe",
     username: "janedoe",
     image_url: "/images/avatar2.png",
@@ -31,6 +32,7 @@
   } %>
 
   <%= erb :twat, locals: {
+    twat_id: 2,
     name: "John Doe",
     username: "johndoe",
     image_url: "/images/avatar3.png",

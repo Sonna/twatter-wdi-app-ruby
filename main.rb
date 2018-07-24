@@ -3,31 +3,18 @@ $LOAD_PATH.push ROOT
 
 require "db_config"
 require "sinatra/base"
-
-# require "models/user"
-#
-# enable :sessions
-#
-# helpers do
-#   def current_user
-#     User.find_by(id: session[:user_id])
-#   end
-#
-#   def logged_in?
-#     !!current_user
-#   end
-# end
+require "apps/sessions"
 
 class TwatterApp < Sinatra::Base
+  # middleware will run before filters
+  use SessionsApp
+
+  # before { redirect "/login" unless session[:user_id] }
+
   set(:views, File.join(ROOT, "/templates"))
 
   get("/") { erb :index }
 
-  # get("/login") { erb :login }
-  # get("/signup") { erb :signup }
-  # post("/session") { redirect "/" }
-  # delete("/session") { redirect "/" }
-  # post("/users") { redirect "/users/#{user.id}" }
   # get("/users/:user") { erb :user }
 
   # post("/likes") { redirect "/timeline?twat_id=#{params["twat_id"]}" }

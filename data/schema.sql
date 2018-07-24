@@ -22,7 +22,7 @@ CREATE TABLE followers (
 );
 
 -- Blocked Users (for a given User ID, Block ID are Users who are & get unseen)
-CREATE TABLE blocks (
+CREATE TABLE block_users (
   user_id INTEGER,
   block_id INTEGER
 );

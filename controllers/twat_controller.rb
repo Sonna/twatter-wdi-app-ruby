@@ -2,20 +2,20 @@ require "controllers/application_controller"
 require "models/twat"
 
 class TwatController < ApplicationController
-  # set :views, File.expand_path(ROOT, "templates/twats")
+  set(:views, File.join(ROOT, "/templates/twats"))
 
   get "/twats" do
     @twats = Twat.all
-    erb :"templates/twats/index"
+    erb :index
   end
 
   get "/twats/new" do
-    erb :"templates/twats/new"
+    erb :new
   end
 
   get "/twats/:id" do
     @twat = Twat.find(params[:id])
-    erb :"templates/twats/show"
+    erb :show
   end
 
   post "/twats/twats" do
@@ -25,7 +25,7 @@ class TwatController < ApplicationController
 
   get "/twats/:id/edit" do
     @twat = Twat.find(params[:id])
-    erb :"templates/twats/edit"
+    erb :edit
   end
 
   put "/twats/:id" do

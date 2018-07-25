@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-require "bundler"
+# require "bundler"
 # require "bundler/gem_tasks"
 $LOAD_PATH.push File.expand_path(__dir__)
 
-begin
-  Bundler.setup(:default, :development)
-rescue Bundler::BundlerError => e
-  warn e.message
-  warn "Run `bundle install` to install missing gems"
-  exit e.status_code
-end
+# begin
+#   Bundler.setup(:default, :development)
+# rescue Bundler::BundlerError => e
+#   warn e.message
+#   warn "Run `bundle install` to install missing gems"
+#   exit e.status_code
+# end
 
 require "rake/testtask"
 require "rubocop/rake_task"

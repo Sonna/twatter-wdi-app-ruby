@@ -27,19 +27,24 @@ module UserFeatures
     end
 
     def test_user_can_find_the_block_button
+      login(@blocker.email, @blocker.password)
+      assert find("#twat-#{@user_twat.id}", text: "Block")
+    end
+
+    def test_user_cannot_find_the_block_button_for_their_own_twats
       login(@user.email, @user.password)
-      assert page.has_content?("Block")
+      refute find("#twat-#{@user_twat.id}", text: "Block")
     end
 
     def test_blocker_can_block_another_user_from_seeing_their_twats
       login(@blocker.email, @blocker.password)
-      within("twat-#{@user_twat.id}") { click_on "Block" }
+      within("#twat-#{@user_twat.id}") { click_on "Block" }
       refute page.has_content?("Mesage is visible")
     end
 
     def test_a_blocked_user_cannot_see_blockers_twats
       login(@blocker.email, @blocker.password)
-      within("twat-#{@user_twat.id}") { click_on "Block" }
+      within("#twat-#{@user_twat.id}") { click_on "Block" }
       visit "/logout"
 
       login(@user.email, @user.password)

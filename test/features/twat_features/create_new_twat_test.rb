@@ -37,6 +37,8 @@ module TwatFeatures
       end
 
       assert page.has_content?(message)
+    ensure
+      Twat.find_by(message: message)&.destroy
     end
   end
 end

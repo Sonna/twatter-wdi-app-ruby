@@ -57,8 +57,10 @@ jobs:
     # Database setup
     - run:
         name: Setup database
+        # command: |
+        #   bundle exec rake db:drop db:create db:schema:load --trace
         command: |
-          bundle exec rake db:drop db:create db:schema:load --trace
+          bundle exec rake db:schema:load --trace
         environment:
           DATABASE_URL: "postgres://circleci@localhost:5432/twatter_test"
           DATABASE_NAME: "twatter_test"

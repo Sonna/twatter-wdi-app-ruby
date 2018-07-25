@@ -1,7 +1,15 @@
+AllCops:
+  Exclude:
+  - "db/schema.rb"
+
 Metrics/AbcSize:
   Exclude:
   - "spec/**/*"
   - "test/**/*"
+
+Metrics/BlockLength:
+  Exclude:
+  - "lib/tasks/**/*"
 
 Metrics/MethodLength:
   Exclude:

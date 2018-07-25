@@ -6,6 +6,8 @@ $LOAD_PATH.push File.expand_path(__dir__)
 require "rake/testtask"
 require "rubocop/rake_task"
 
+require "lib/tasks/db"
+
 Rake::TestTask.new(:test) do |t|
   t.libs << "test"
   t.pattern = "test/**/*_test.rb"

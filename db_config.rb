@@ -1,14 +1,10 @@
 # frozen_string_literal: true
 
 require "active_record"
+require "yaml"
 
-options = {
-  adapter: "postgresql",
-  database: "twatter",
-  username: "postgres",
-  hostaddr: "::",
-  port: 5433
-}
+options = YAML.load_file(File.join(__dir__, "config/database.yml"))
+options = options["development"]
 
 ActiveRecord::Base.establish_connection(ENV["DATABASE_URL"] || options)
 

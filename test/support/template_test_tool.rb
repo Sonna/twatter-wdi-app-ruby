@@ -1,13 +1,9 @@
 # frozen_string_literal: true
 
-$LOAD_PATH.push File.expand_path("../..", __dir__)
-
 require "erb"
 require "tilt"
 
-require "test/test_helper"
-
-class IndexTemplateTest < Minitest::Test
+module TemplateTestTool
   class LocalsStub
     STUBBED_HELPERS = %w[logged_in?].freeze
     STUBBED_LOCALS = %w[
@@ -21,11 +17,6 @@ class IndexTemplateTest < Minitest::Test
       template = Tilt.new(File.join(ROOT, "templates", "#{path}.erb"))
       template.render(self, *args)
     end
-  end
-
-  def test_render_root_index_template
-    subject = erb(:index)
-    assert_match "Twatter", subject
   end
 
   def erb(path, *args)

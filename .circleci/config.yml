@@ -69,7 +69,8 @@ jobs:
     - run:
         name: run tests
         command: |
-          rake
+          gem install rubocop
+          bundle exec rake
         environment:
           DATABASE_URL: "postgres://circleci@localhost:5432/twatter_test"
 

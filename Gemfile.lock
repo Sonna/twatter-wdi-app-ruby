@@ -48,6 +48,7 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rake (12.3.1)
     ruby-progressbar (1.9.0)
     sinatra (2.0.3)
       mustermann (~> 1.0)
@@ -78,6 +79,7 @@ DEPENDENCIES
   capybara
   minitest-reporters
   pg
+  rake
   sinatra
   sinatra-contrib
 

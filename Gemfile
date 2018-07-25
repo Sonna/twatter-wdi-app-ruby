@@ -8,6 +8,7 @@ gem "bcrypt"
 gem "pg"
 gem "sinatra"
 gem "sinatra-contrib"
+gem "rake"
 
 group :test do
   gem "capybara"

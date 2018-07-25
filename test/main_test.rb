@@ -6,13 +6,7 @@ require "test/test_helper"
 
 require "main"
 
-class TwatterAppTest < Minitest::Test
-  include Rack::Test::Methods
-
-  def app
-    TwatterApp
-  end
-
+class MainTest < TwatterAppTest
   def test_my_default
     get "/"
     assert last_response.ok?

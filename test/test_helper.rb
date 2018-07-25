@@ -7,6 +7,14 @@ require "rack/test"
 
 require "main"
 
+class TwatterAppTest < Minitest::Test
+  include Rack::Test::Methods
+
+  def app
+    TwatterApp
+  end
+end
+
 class CurrentUserSession < Minitest::Test
   include Rack::Test::Methods
 

@@ -19,6 +19,22 @@
 
   <section class="timeline">
     <h2>Recent Activity</h2>
+    <section class="twats">
+
+    <% @twats.each do |twat| %>
+      <%= erb :"twats/twat", locals: {
+        twat_id: twat.id,
+        twatter_id: twat.twatter.id,
+        name: twat.twatter.name,
+        username: twat.twatter.username,
+        image_url: twat.twatter.image_url,
+        likes: twat.likes.count,
+        retwats: twat.retwats.count,
+        comments_count: twat.comments.count,
+        message: twat.message
+      } %>
+    <% end %>
+
   <%= erb :"twats/twat", locals: {
     twat_id: 1,
     twatter_id: 32,

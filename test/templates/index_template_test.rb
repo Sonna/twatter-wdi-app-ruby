@@ -6,7 +6,7 @@ class IndexTemplateTest < Minitest::Test
   include TemplateTestTool
 
   def test_render_root_index_template
-    subject = erb(:index)
+    subject = erb(:index, LocalsStub.new(:@twats => []))
     assert_match "Twatter", subject
   end
 end

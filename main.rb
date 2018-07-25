@@ -24,7 +24,10 @@ class TwatterApp < Sinatra::Base
 
   set(:views, File.join(settings.root, "templates"))
 
-  get("/") { erb :index }
+  get("/") do
+    @twats = Twat.all
+    erb :index
+  end
   # map("/twats") { run TwatController }
 
   # get("/users/:user") { erb :user }

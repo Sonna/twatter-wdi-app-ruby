@@ -13,6 +13,11 @@ module TemplateTestTool
     STUBBED_HELPERS.each { |method_name| define_method(method_name) { nil } }
     STUBBED_LOCALS.each { |method_name| define_method(method_name) { nil } }
 
+    def initialize(**hash)
+      # args.each instance_variable_set(name, value)
+      hash.each(&method(:instance_variable_set))
+    end
+
     def erb(path, *args)
       template = Tilt.new(File.join(ROOT, "templates", "#{path}.erb"))
       template.render(self, *args)

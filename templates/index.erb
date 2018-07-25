@@ -12,8 +12,13 @@
 
 </section>
 
-<section class="timeline">
-  <h2>Recent Activity</h2>
+<section class="center-container">
+  <section class="new-post">
+    <%= erb :"twats/form" %>
+  </section>
+
+  <section class="timeline">
+    <h2>Recent Activity</h2>
   <%= erb :"twats/twat", locals: {
     twat_id: 1,
     twatter_id: 32,
@@ -51,4 +56,5 @@
       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     MESSAGE
   } %>
+  </section>
 </section>

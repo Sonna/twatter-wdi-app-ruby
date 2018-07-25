@@ -33,7 +33,9 @@ module UserFeatures
 
     def test_user_cannot_find_the_block_button_for_their_own_twats
       login(@user.email, @user.password)
-      refute find("#twat-#{@user_twat.id}", text: "Block")
+      assert_raises(Capybara::ElementNotFound) do
+        find("#twat-#{@user_twat.id}", text: "Block")
+      end
     end
 
     def test_blocker_can_block_another_user_from_seeing_their_twats

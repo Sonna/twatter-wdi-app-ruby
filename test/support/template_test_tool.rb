@@ -18,6 +18,11 @@ module TemplateTestTool
       hash.each(&method(:instance_variable_set))
     end
 
+    LocalUser = Struct.new(:id)
+    def current_user
+      LocalUser.new(nil)
+    end
+
     def erb(path, *args)
       template = Tilt.new(File.join(ROOT, "templates", "#{path}.erb"))
       template.render(self, *args)

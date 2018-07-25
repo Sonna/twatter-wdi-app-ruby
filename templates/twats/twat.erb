@@ -4,10 +4,12 @@
     <h1>
       <a href="/users/<%= username %>">@<%= username %></a>
     </h1>
-    <button>
-      <i class="fas fa-ban"></i>
-      <span class="sr-only">Block</span>
-    </button>
+    <% unless current_user.id == twatter_id %>
+      <button>
+        <i class="fas fa-ban"></i>
+        <span class="sr-only">Block</span>
+      </button>
+    <% end %>
   </header>
   <section class="body">
     <p><%= message %></p>
@@ -29,21 +31,23 @@
         <span class="count"><%= likes %></span>
       </button>
     </form>
-    <form action="/retwats" method="post" class="action">
-      <input type="hidden" name="twat_id" value="<%= twat_id %>">
-      <input type="hidden" name="user_id" value="REMOVE ME -> look at current_user object">
-      <button>
-        <i class="fas fa-retweet"></i>
-        <span class="sr-only">Retwat</span>
-        <span class="count"><%= retwats %></span>
-      </button>
-    </form>
-    <form action="/messages/new" class="action">
-      <input type="hidden" name="twatter_id" value="<%= twatter_id %>">
-      <button>
-        <i class="far fa-envelope"></i>
-        <span class="sr-only">Direct Message</span>
-      </button>
-    </form>
+    <% unless current_user.id == twatter_id %>
+      <form action="/retwats" method="post" class="action">
+        <input type="hidden" name="twat_id" value="<%= twat_id %>">
+        <input type="hidden" name="user_id" value="REMOVE ME -> look at current_user object">
+        <button>
+          <i class="fas fa-retweet"></i>
+          <span class="sr-only">Retwat</span>
+          <span class="count"><%= retwats %></span>
+        </button>
+      </form>
+      <form action="/messages/new" class="action">
+        <input type="hidden" name="twatter_id" value="<%= twatter_id %>">
+        <button>
+          <i class="far fa-envelope"></i>
+          <span class="sr-only">Direct Message</span>
+        </button>
+      </form>
+    <% end %>
   </footer>
 </article>

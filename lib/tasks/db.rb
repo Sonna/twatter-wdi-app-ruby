@@ -42,6 +42,15 @@ namespace :db do
     raise
   end
 
+  desc "Drop the database"
+  task :drop do
+    ActiveRecord::Base.establish_connection(options)
+    ActiveRecord::Base.connection.drop_database(
+      ENV["DATABASE_NAME"] || options["database"]
+    )
+    puts "Database deleted."
+  end
+
   desc "Create a db/schema.rb file that is portable DB supported by AR"
   task :schema do
     ActiveRecord::Base.establish_connection(options)

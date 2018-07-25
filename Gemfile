@@ -13,6 +13,7 @@ gem "rake"
 group :test do
   gem "capybara"
   # gem "faker"
-  # gem "rspec"
   gem "minitest-reporters"
+  # gem "rspec"
+  gem "rubocop"
 end

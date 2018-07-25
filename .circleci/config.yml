@@ -12,6 +12,7 @@ jobs:
     # specify the version you desire here
     - image: circleci/ruby:2.5.1-node-browsers
       environment:
+        DATABASE_URL: "postgres://circleci@localhost:5432/twatter_test"
         PG_HOST: localhost
         PG_USER: circleci
         RACK_ENV: test

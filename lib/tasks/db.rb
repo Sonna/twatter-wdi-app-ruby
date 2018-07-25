@@ -16,9 +16,9 @@ require "yaml"
 namespace :db do
   class DatabaseAlreadyExists < StandardError; end # :nodoc:
 
+  # Stub out Rails `env` method
   module Rails
-    def self.env
-    end
+    def self.env; end
   end
 
   ROOT_PATH = File.expand_path("../..", __dir__)

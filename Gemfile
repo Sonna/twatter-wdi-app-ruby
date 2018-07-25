@@ -6,9 +6,9 @@ ruby "2.5.1"
 gem "activerecord"
 gem "bcrypt"
 gem "pg"
+gem "rake"
 gem "sinatra"
 gem "sinatra-contrib"
-gem "rake"
 
 group :test do
   gem "capybara"

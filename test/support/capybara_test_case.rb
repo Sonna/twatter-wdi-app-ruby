@@ -35,7 +35,7 @@ class CapybaraTestCase < Minitest::Test
     click_on "sign up"
   end
 
-  def signin(email, password)
+  def login(email, password)
     visit "/login"
     # within("#sign-in") do
     fill_in "email", with: email

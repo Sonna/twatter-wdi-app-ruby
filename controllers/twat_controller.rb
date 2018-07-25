@@ -9,7 +9,8 @@ class TwatController < ApplicationController
   set(:views, File.join(ROOT, "/templates"))
 
   get "/twats" do
-    @twats = Twat.all
+    authorized?
+    @twats = Twat.all_mine(current_user)
     erb :"twats/index", layout: :"layouts/default"
   end
 

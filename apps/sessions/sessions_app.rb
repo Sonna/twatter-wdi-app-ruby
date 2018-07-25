@@ -35,7 +35,8 @@ class SessionsApp < Sinatra::Base
   get("/users/new") { erb :signup }
 
   post "/users" do
-    user = User.new(email: params[:email], password: params[:password])
+    user = User.new(email: params[:email], password: params[:password],
+                    username: params[:username], name: params[:name])
     redirect "/" if user.valid? && user.save
     erb :signup
   end

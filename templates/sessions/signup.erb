@@ -1,9 +1,13 @@
 <h1>signup</h1>
 
 <form action="/users" method="post">
-  <label for="email">email</label>
+  <label for="name">Name or Alias<abbr title="required">*</abbr></label>
+  <input type="name" name="name" value="<%= params[:name] %>">
+  <label for="username">Username<abbr title="required">*</abbr></label>
+  <input type="username" name="username" value="<%= params[:username] %>">
+  <label for="email">email<abbr title="required">*</abbr></label>
   <input type="email" name="email" value="<%= params[:email] %>">
-  <label for="password">password</label>
+  <label for="password">password<abbr title="required">*</abbr></label>
   <input type="password" name="password" value="<%= params[:password] %>">
   <button>sign up</button>
 </form>

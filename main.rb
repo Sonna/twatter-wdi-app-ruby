@@ -18,6 +18,8 @@ class TwatterApp < Sinatra::Base
   use SessionsApp
   use TwatController
 
+  helpers SessionsHelpers
+
   # before { redirect "/login" unless session[:user_id] }
 
   set(:views, File.join(settings.root, "templates"))

@@ -32,4 +32,8 @@ class CurrentUserSession < Minitest::Test
   def setup
     current_user_session
   end
+
+  def be_redirect
+    302
+  end
 end

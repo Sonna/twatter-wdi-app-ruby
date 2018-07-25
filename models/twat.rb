@@ -8,4 +8,6 @@ class Twat < ActiveRecord::Base
   has_many :retwats
 
   alias_attribute :twatter, :user
+
+  scope :all_mine, ->(user) { where(user_id: user.id) }
 end

@@ -10,7 +10,7 @@ module SessionsHelpers
 
   # rubocop:disable Style/DoubleNegation
   def logged_in?
-    !!current_user
+    !current_user.is_a?(NullUser) && !!current_user
   end
   # rubocop:enable Style/DoubleNegation
 

@@ -24,7 +24,7 @@ namespace :db do
   ROOT_PATH = File.expand_path("../..", __dir__)
 
   db_config = YAML.load_file(File.join(ROOT_PATH, "config/database.yml"))
-  options = db_config["development"]
+  options = ENV["DATABASE_URL"] || db_config["development"]
 
   # == Usage:
   # ```shell
@@ -33,7 +33,9 @@ namespace :db do
   desc "Create the database with default options"
   task :create do
     ActiveRecord::Base.establish_connection(options)
-    ActiveRecord::Base.connection.create_database(options["database"])
+    ActiveRecord::Base.connection.create_database(
+      ENV["DATABASE_NAME"] || options["database"]
+    )
     puts "Database created."
   rescue ActiveRecord::StatementInvalid => error
     raise DatabaseAlreadyExists if error.cause.is_a?(PG::DuplicateDatabase)

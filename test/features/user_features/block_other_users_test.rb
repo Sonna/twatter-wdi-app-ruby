@@ -52,13 +52,5 @@ module UserFeatures
       login(@user.email, @user.password)
       refute page.has_content?("You cannot see me")
     end
-
-    protected
-
-    def cleanup_user_data(user)
-      attributes = user.to_h
-      attributes.delete(:password)
-      User.find_by(attributes).destroy
-    end
   end
 end

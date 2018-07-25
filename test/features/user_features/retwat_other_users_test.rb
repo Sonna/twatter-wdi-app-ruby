@@ -35,13 +35,5 @@ module UserFeatures
         find("#twat-#{@bob_twat.id}", text: "Retwat")
       end
     end
-
-    protected
-
-    def cleanup_user_data(user)
-      attributes = user.to_h
-      attributes.delete(:password)
-      User.find_by(attributes).destroy
-    end
   end
 end

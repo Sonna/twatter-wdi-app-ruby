@@ -37,4 +37,12 @@ class CapybaraTestCase < Minitest::Test
   def selector(string)
     find(:css, string)
   end
+
+  protected
+
+  def cleanup_user_data(user)
+    attributes = user.to_h
+    attributes.delete(:password)
+    User.find_by(attributes).destroy
+  end
 end

@@ -7,3 +7,9 @@ gem "bcrypt"
 gem "pg"
 gem "sinatra"
 gem "sinatra-contrib"
+
+group :test do
+  gem "capybara"
+  # gem "faker"
+  # gem "rspec"
+end

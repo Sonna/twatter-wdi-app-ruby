@@ -2,7 +2,6 @@
 
 require "test/test_helper"
 
-# class NavigationTemplateTest
 class LoginTemplateTest < Minitest::Test
   include TemplateTestTool
 
@@ -46,4 +45,3 @@ class LoginTemplateTest < Minitest::Test
     end
   end
 end
-# end

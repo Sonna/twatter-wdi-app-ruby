@@ -7,6 +7,7 @@ gem "activerecord"
 gem "bcrypt"
 gem "pg"
 gem "rake"
+gem "rubocop"
 gem "sinatra"
 gem "sinatra-contrib"
 
@@ -15,5 +16,4 @@ group :test do
   # gem "faker"
   gem "minitest-reporters"
   # gem "rspec"
-  gem "rubocop"
 end

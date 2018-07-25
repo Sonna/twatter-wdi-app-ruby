@@ -69,7 +69,7 @@ jobs:
     - run:
         name: run tests
         command: |
-          bundle exec rake
+          rake
         environment:
           DATABASE_URL: "postgres://circleci@localhost:5432/twatter_test"
 

@@ -2,6 +2,7 @@ AllCops:
   TargetRubyVersion: 2.5
   Exclude:
   - "db/schema.rb"
+  - "vendor/**/*"
 
 Metrics/AbcSize:
   Exclude:

@@ -19,9 +19,9 @@ module TemplateTestTool
     end
   end
 
-  def erb(path, *args)
+  def erb(path, self_class = LocalsStub.new, *args)
     layout = Tilt.new(File.join(ROOT, "templates", "layouts", "default.erb"))
     template = Tilt.new(File.join(ROOT, "templates", "#{path}.erb"))
-    layout.render(LocalsStub.new) { template.render(LocalsStub.new, *args) }
+    layout.render(LocalsStub.new) { template.render(self_class, *args) }
   end
 end

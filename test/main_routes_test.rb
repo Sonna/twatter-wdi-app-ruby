@@ -7,9 +7,8 @@ require "test/test_helper"
 require "main"
 
 class MainRoutesTest < CurrentUserSession
-  def test_twats_route
-    get "/twats"
+  def test_root_path_route
+    get "/"
     assert last_response.ok?
-    assert last_response.body.include?("Twatter")
   end
 end

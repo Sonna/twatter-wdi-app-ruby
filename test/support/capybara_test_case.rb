@@ -1,18 +1,12 @@
 # frozen_string_literal: true
 
-# disable :run
-
 require "capybara"
 require "capybara/dsl"
 require "capybara/minitest"
-# require "rack/test"
 
 Capybara.app = TwatterApp
 
-# module FeatureHelpers
 class CapybaraTestCase < Minitest::Test
-  # include Rack::Test::Methods
-  # include Capybara
   include Capybara::DSL
   include Capybara::Minitest::Assertions
 
@@ -21,10 +15,6 @@ class CapybaraTestCase < Minitest::Test
       to_h
     end
   end
-
-  # def app
-  #   TwatterApp
-  # end
 
   def signup(user)
     visit "/signup"

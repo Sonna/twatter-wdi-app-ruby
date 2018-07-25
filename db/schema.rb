@@ -44,6 +44,9 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "twats", id: :serial, force: :cascade do |t|
     t.text "message"
     t.integer "user_id"
+    t.integer "comments_count", default: 0
+    t.integer "likes_count", default: 0
+    t.integer "retwats_count", default: 0
     t.date "created_at"
     t.date "updated_at"
   end

@@ -23,6 +23,9 @@ CREATE TABLE twats (
   id SERIAL4 PRIMARY KEY,
   message TEXT,
   user_id INTEGER,
+  comments_count INTEGER DEFAULT(0),
+  likes_count INTEGER DEFAULT(0),
+  retwats_count INTEGER DEFAULT(0),
   created_at DATE,
   updated_at DATE
 );

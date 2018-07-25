@@ -6,7 +6,7 @@ $LOAD_PATH.push ROOT
 require "db_config"
 require "sinatra/base"
 require "apps/sessions/sessions_app"
-require "controllers/twat_controller"
+require "controllers/twats_controller"
 require "models/comment"
 require "models/like"
 require "models/retwat"
@@ -16,7 +16,7 @@ class TwatterApp < Sinatra::Base
 
   # middleware will run before filters
   use SessionsApp
-  use TwatController
+  use TwatsController
 
   helpers SessionsHelpers
 

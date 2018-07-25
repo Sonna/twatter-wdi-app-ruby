@@ -5,7 +5,7 @@ require "date"
 require "controllers/application_controller"
 require "models/twat"
 
-class TwatController < ApplicationController
+class TwatsController < ApplicationController
   set(:views, File.join(ROOT, "/templates"))
 
   get "/twats" do

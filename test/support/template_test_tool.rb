@@ -5,17 +5,24 @@ require "tilt"
 
 module TemplateTestTool
   class LocalsStub
+    attr_reader :attributes
+
     STUBBED_HELPERS = %w[logged_in?].freeze
     STUBBED_LOCALS = %w[
-      image_url username twat_id comments_count likes retwats twatter_id message
+      image_url twat_id comments_count likes retwats twatter_id message
     ].freeze
 
-    STUBBED_HELPERS.each { |method_name| define_method(method_name) { nil } }
-    STUBBED_LOCALS.each { |method_name| define_method(method_name) { nil } }
+    def self.create_method
+      ->(method_name) { define_method(method_name) { nil } }
+    end
+
+    STUBBED_HELPERS.each(&create_method)
+    STUBBED_LOCALS.each(&create_method)
 
     def initialize(**hash)
       # args.each instance_variable_set(name, value)
       hash.each(&method(:instance_variable_set))
+      @attributes = hash
     end
 
     LocalUser = Struct.new(:id)
@@ -26,6 +33,14 @@ module TemplateTestTool
     def erb(path, *args)
       template = Tilt.new(File.join(ROOT, "templates", "#{path}.erb"))
       template.render(self, *args)
+    end
+
+    def method_missing(method_name, *args, &block)
+      attributes.fetch("@#{method_name}".to_sym, nil) || super
+    end
+
+    def respond_to_missing?(method_name, include_private = false)
+      attributes.key?("@#{method_name}".to_sym) || super
     end
   end
 

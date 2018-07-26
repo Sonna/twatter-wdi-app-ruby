@@ -7,6 +7,7 @@ require "db_config"
 require "sinatra/base"
 require "apps/sessions/sessions_app"
 require "controllers/twats_controller"
+require "controllers/blocked_users_controller"
 require "models/comment"
 require "models/like"
 require "models/retwat"
@@ -17,6 +18,7 @@ class TwatterApp < Sinatra::Base
   # middleware will run before filters
   use SessionsApp
   use TwatsController
+  use BlockedUsersController
 
   helpers SessionsHelpers
 

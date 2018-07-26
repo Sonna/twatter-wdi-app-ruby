@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table "blocked_users", id: :serial, force: :cascade do |t|
     t.integer "user_id"
-    t.integer "blocked_id"
+    t.integer "blocker_id"
   end
 
   create_table "comments", id: :serial, force: :cascade do |t|

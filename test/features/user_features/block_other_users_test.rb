@@ -47,6 +47,7 @@ module UserFeatures
     def test_a_blocked_user_cannot_see_blockers_twats
       login(@blocker.email, @blocker.password)
       within("#twat-#{@user_twat.id}") { click_on "Block" }
+      # within(".block-twatter-#{@user.id}") { click_on "Block" }
       visit "/logout"
 
       login(@user.email, @user.password)

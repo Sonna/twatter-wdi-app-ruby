@@ -5,8 +5,8 @@
       <a href="/users/<%= username %>">@<%= username %></a>
     </h1>
     <% unless current_user.id == twatter_id %>
-      <form action="/blocks" method="post" class="action">
-        <input type="hidden" name="twatter_id" value="<%= twatter_id %>">
+      <form id="block-twatter-<%= twatter_id %>" action="/blocks" method="post" class="action">
+        <input type="hidden" name="blocker_id" value="<%= twatter_id %>">
         <input type="hidden" name="user_id" value="REMOVE ME -> look at current_user object">
         <button>
           <i class="fas fa-ban"></i>

@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
-$LOAD_PATH.push File.expand_path("..", __dir__)
-
 require "test/test_helper"
-
-require "main"
 
 class TwatsRoutesTest < CurrentUserSession
   def test_twats_index_route

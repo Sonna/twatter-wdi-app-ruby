@@ -43,7 +43,7 @@ DROP TABLE IF EXISTS blocked_users;
 CREATE TABLE blocked_users (
   id SERIAL4 PRIMARY KEY,
   user_id INTEGER,
-  blocked_id INTEGER
+  blocker_id INTEGER
 );
 
 DROP TABLE IF EXISTS likes;

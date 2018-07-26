@@ -29,11 +29,20 @@ class TwatterApp < Sinatra::Base
 
   get("/") do
     @twats = Twat.filtered(current_user).most_recent.limit(10)
+    @twats = @twats.posted_by(params["twatter_id"]) if params["twatter_id"]
     erb :index
   end
   # map("/twats") { run TwatController }
 
-  # get("/users/:user") { erb :user }
+  # UsersController#show
+  get("/users/:username") do
+    user = User.find_by(username: params[:username])
+    @twats = Twat.filtered(current_user)
+                 .most_recent
+                 .posted_by(user.id)
+                 .limit(10)
+    erb :index
+  end
 
   # post("/likes") { redirect "/timeline?twat_id=#{params["twat_id"]}" }
 

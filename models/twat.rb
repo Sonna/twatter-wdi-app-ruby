@@ -10,9 +10,9 @@ class Twat < ActiveRecord::Base
   alias_attribute :twatter, :user
   alias_attribute :twatter_id, :user_id
 
-  scope :all_mine, ->(user) { where(user_id: user.id) }
   scope :filtered, ->(user) { where.not(user_id: blocked_user_ids(user.id)) }
   scope :most_recent, -> { order(created_at: :asc) }
+  scope :posted_by, ->(user_id) { where(user_id: user_id) }
 
   def self.blocked_user_ids(user_id)
     BlockedUser.where(user_id: user_id).pluck(:blocker_id) +

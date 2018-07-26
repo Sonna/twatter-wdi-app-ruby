@@ -10,7 +10,7 @@ class TwatsController < ApplicationController
 
   get "/twats" do
     authorized?
-    @twats = Twat.all_mine(current_user)
+    @twats = Twat.posted_by(current_user.id)
     erb :"twats/index", layout: :"layouts/default"
   end
 

@@ -236,6 +236,32 @@ img {
   display: block;
 }
 
+.user-profile-card .actions {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.user-profile-card .follow button,
+.user-profile-card .unfollow button {
+  border-radius: 100px;
+  border-style: solid;
+  border-color: lightblue;
+  border-width: 1px;
+  font-size: 1em;
+  padding: 10px;
+}
+
+.user-profile-card .follow button {
+  background-color: white;
+  color: skyblue;
+}
+
+.user-profile-card .unfollow button {
+  background-color: deepskyblue;
+  color: white;
+}
+
 .user-profile-card img {
   border-radius: 50%;
   display: inline-block;

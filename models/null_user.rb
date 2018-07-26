@@ -5,6 +5,14 @@ class NullUser
     "null_user@sinatra.app"
   end
 
+  def followers
+    User.none
+  end
+
+  def following
+    User.none
+  end
+
   def id
     0
   end

@@ -11,9 +11,9 @@ class FollowedUsersController < ApplicationController
     redirect to("/")
   end
 
-  delete "/follows/:id" do
+  delete "/follows/:user_id" do
     authorized?
-    FollowedUser.find_by(id: params[:id],
+    FollowedUser.find_by(user_id: params[:user_id],
                          follower_id: current_user.id)&.destroy
     redirect to("/")
   end

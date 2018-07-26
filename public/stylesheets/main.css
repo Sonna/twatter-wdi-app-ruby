@@ -257,6 +257,12 @@ img {
   color: skyblue;
 }
 
+.user-profile-card .follow button:hover,
+.user-profile-card .unfollow button:hover {
+  background-color: blue;
+  cursor: pointer;
+}
+
 .user-profile-card .unfollow button {
   background-color: deepskyblue;
   color: white;

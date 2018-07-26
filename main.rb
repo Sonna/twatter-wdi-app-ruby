@@ -23,6 +23,7 @@ class TwatterApp < Sinatra::Base
   use UsersController
   use TwatsController
   use BlockedUsersController
+  use FollowedUsersController
   use LikesController
 
   helpers SessionsHelpers

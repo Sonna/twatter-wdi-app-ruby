@@ -20,13 +20,13 @@
   </section>
   <% unless current_user.id == id %>
     <section class="actions">
-      <% if current_user.followers.pluck(:id).include?(current_user.id) %>
-        <form action="/follow/<%= id %>" method="post" class="action unfollow unfollow-<%= id %>" >
+      <% if current_user.following.pluck(:user_id).include?(id) %>
+        <form action="/follows/<%= id %>" method="post" class="action unfollow unfollow-<%= id %>" >
           <input type="hidden" name="_method" value="delete">
           <button>Unfollow</button>
         </form>
       <% else %>
-        <form action="/follow" method="post" class="action follow follow-<%= id %>">
+        <form action="/follows" method="post" class="action follow follow-<%= id %>">
           <input type="hidden" name="follower_id" value="<%= id %>">
           <button>Follow</button>
         </form>

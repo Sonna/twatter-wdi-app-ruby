@@ -1,9 +1,10 @@
 <article id="twat-<%= twat_id %>" class="twat card">
+  <img src="<%= image_url %>">
+  <div class="card-container">
   <header class="head">
     <% if retwated_by %>
       <span class="retwated_by">Retwated by <%= retwated_by %></span>
     <% end %>
-    <img src="<%= image_url %>">
     <h1>
       <a href="/users/<%= username %>">@<%= username %></a>
     </h1>
@@ -67,4 +68,5 @@
       </form>
     <% end %>
   </footer>
+  </div>
 </article>

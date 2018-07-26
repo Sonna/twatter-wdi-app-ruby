@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "models/blocked_user"
 require "models/followed_user"
 
 class User < ActiveRecord::Base
@@ -13,6 +14,9 @@ class User < ActiveRecord::Base
 
   has_many :blocked_users
   has_many :blockers, through: :blocked_users
+  has_many :inverse_blocked_users, class_name: "BlockedUser",
+                                   foreign_key: "blocker_id"
+  has_many :inverse_blockers, through: :inverse_blocked_users, source: :user
   # has_many :comments
 
   has_many :followed_users
@@ -25,6 +29,7 @@ class User < ActiveRecord::Base
   # has_many :messages
   # has_many :twats
 
+  alias_attribute :blocking, :inverse_blockers
   alias_attribute :following, :inverse_followers
 
   validates :email, presence: true, uniqueness: true

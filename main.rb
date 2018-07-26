@@ -10,6 +10,7 @@ require "controllers/blocked_users_controller"
 require "controllers/followed_users_controller"
 require "controllers/likes_controller"
 require "controllers/twats_controller"
+require "controllers/users_controller"
 require "models/comment"
 require "models/like"
 require "models/retwat"
@@ -19,6 +20,7 @@ class TwatterApp < Sinatra::Base
 
   # middleware will run before filters
   use SessionsApp
+  use UsersController
   use TwatsController
   use BlockedUsersController
   use LikesController
@@ -34,23 +36,6 @@ class TwatterApp < Sinatra::Base
     @twats = Twat.filtered(current_user).most_recent.limit(10)
     @twats = @twats.posted_by(params["twatter_id"]) if params["twatter_id"]
     erb :index
-  end
-  # map("/twats") { run TwatController }
-
-  # UsersController#show
-  get("/users/:username") do
-    @twatter = User.find_by(username: params[:username])
-    @twats = Twat.filtered(current_user)
-                 .most_recent
-                 .posted_by(@twatter.id)
-                 .limit(10)
-    erb :"users/show"
-  end
-
-  delete "/likes/:id" do
-    # authorized?
-    Like.destroy(params[:id])
-    redirect to("/")
   end
 
   # post("/likes") { redirect "/timeline?twat_id=#{params["twat_id"]}" }

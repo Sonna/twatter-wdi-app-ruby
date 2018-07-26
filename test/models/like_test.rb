@@ -22,11 +22,17 @@ module Models
     end
 
     def test_daniel_likes_ellys_twat_record
-      assert Like.create(user_id: @daniel.id, twat_id: @elly_twat.id)
+      like = Like.create(user_id: @daniel.id, twat_id: @elly_twat.id)
+      assert like
+    ensure
+      like&.destroy
     end
 
     def test_elly_likes_daniels_twat_record
-      assert Like.create(user_id: @elly.id, twat_id: @daniel_twat.id)
+      like = Like.create(user_id: @elly.id, twat_id: @daniel_twat.id)
+      assert like
+    ensure
+      like&.destroy
     end
   end
 end

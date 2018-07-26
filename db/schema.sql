@@ -40,9 +40,9 @@ CREATE TABLE followers (
 
 -- Blocked Users (for a given User ID, Block ID are Users who are & get unseen)
 DROP TABLE IF EXISTS block_users;
-CREATE TABLE block_users (
+CREATE TABLE blocked_users (
   user_id INTEGER,
-  block_id INTEGER
+  blocked_id INTEGER
 );
 
 DROP TABLE IF EXISTS likes;

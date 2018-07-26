@@ -10,4 +10,7 @@ class Twat < ActiveRecord::Base
   alias_attribute :twatter, :user
 
   scope :all_mine, ->(user) { where(user_id: user.id) }
+  # scope :filtered, lambda { |user|
+  #   left_outer_joins(:blocks).where(blocks: { id: user.id })
+  # }
 end

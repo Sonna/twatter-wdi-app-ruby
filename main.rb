@@ -25,6 +25,7 @@ class TwatterApp < Sinatra::Base
   set(:views, File.join(settings.root, "templates"))
 
   get("/") do
+    # @twats = Twat.filtered(current_user)
     @twats = Twat.all
     erb :index
   end

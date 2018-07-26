@@ -1,10 +1,14 @@
 <article id="twat-<%= twat_id %>" class="twat card">
   <header class="head">
+    <% if retwated_by %>
+      <span class="retwated_by">Retwated by <%= retwated_by %></span>
+    <% end %>
     <img src="<%= image_url %>">
     <h1>
       <a href="/users/<%= username %>">@<%= username %></a>
     </h1>
-    <% unless current_user.id == twatter_id %>
+    <time datetime="<%= created_at %>"><%= created_at %></time>
+    <% unless !logged_in? || current_user.id == twatter_id %>
       <form class="block-twatter-<%= twatter_id %>" action="/blocks" method="post" class="action">
         <input type="hidden" name="blocker_id" value="<%= twatter_id %>">
         <button>

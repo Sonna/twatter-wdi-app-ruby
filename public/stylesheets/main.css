@@ -16,6 +16,15 @@ img {
   margin-bottom: 20px;
 }
 
+.card time:before {
+  content: "\00b7";
+  padding-right: 5px;
+}
+
+.card form {
+  display: inline-block;
+}
+
 .container {
   display: flex;
   margin: 0;

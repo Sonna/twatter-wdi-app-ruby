@@ -1,5 +1,7 @@
 <% twat ||= @twat %>
 <%= erb :"twats/twat", locals: {
+  retwated_by: nil,
+  created_at: twat.created_at,
   twat_id: twat.id,
   twatter_id: twat.twatter_id,
   name: twat.twatter.name,

@@ -63,6 +63,10 @@ img {
   width: 30%;
 }
 
+.retwated_by {
+  display: block;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

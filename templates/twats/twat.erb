@@ -6,9 +6,10 @@
       <span class="retwated_by">Retwated by <%= retwated_by %></span>
     <% end %>
     <h1>
-      <a href="/users/<%= username %>">@<%= username %></a>
+      <%= name %>
+      <a class="at-username" href="/users/<%= username %>">@<%= username %></a>
+      <time class="post-date" datetime="<%= created_at %>"><%= created_at %></time>
     </h1>
-    <time datetime="<%= created_at %>"><%= created_at %></time>
     <% unless !logged_in? || current_user.id == twatter_id %>
       <form class="block-twatter-<%= twatter_id %>" action="/blocks" method="post" class="action">
         <input type="hidden" name="blocker_id" value="<%= twatter_id %>">

@@ -101,6 +101,14 @@ img {
 
 .head h1 {
   display: inline-block;
+  font-size: 1em;
+  margin: 0;
+}
+
+.head h1 .at-username,
+.head h1 .post-date {
+  color: gray;
+  font-weight: 400;
 }
 
 .form-input {

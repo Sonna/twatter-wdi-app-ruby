@@ -18,27 +18,37 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "blocked_users", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "blocker_id"
+    t.datetime "created_at", default: -> { "now()" }
+    t.datetime "updated_at", default: -> { "now()" }
   end
 
   create_table "comments", id: :serial, force: :cascade do |t|
     t.text "content"
     t.integer "user_id"
     t.integer "twat_id"
+    t.datetime "created_at", default: -> { "now()" }
+    t.datetime "updated_at", default: -> { "now()" }
   end
 
   create_table "followed_users", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "follower_id"
+    t.datetime "created_at", default: -> { "now()" }
+    t.datetime "updated_at", default: -> { "now()" }
   end
 
   create_table "likes", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "twat_id"
+    t.datetime "created_at", default: -> { "now()" }
+    t.datetime "updated_at", default: -> { "now()" }
   end
 
   create_table "retwats", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "twat_id"
+    t.datetime "created_at", default: -> { "now()" }
+    t.datetime "updated_at", default: -> { "now()" }
   end
 
   create_table "twats", id: :serial, force: :cascade do |t|
@@ -47,8 +57,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "comments_count", default: 0
     t.integer "likes_count", default: 0
     t.integer "retwats_count", default: 0
-    t.date "created_at"
-    t.date "updated_at"
+    t.datetime "created_at", default: -> { "now()" }
+    t.datetime "updated_at", default: -> { "now()" }
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
@@ -59,6 +69,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "twats_count", default: 0
     t.integer "followers_count", default: 0
     t.integer "following_count", default: 0
+    t.datetime "created_at", default: -> { "now()" }
+    t.datetime "updated_at", default: -> { "now()" }
   end
 
 end

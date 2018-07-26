@@ -22,7 +22,7 @@ class TwatsController < ApplicationController
   get "/twats/:id" do
     authorized?
     @twat = Twat.find(params[:id])
-    erb :"twats/show", layout: :"layouts/default"
+    erb :"twats/show", layout: :"layouts/default", locals: { twat: @twat }
   end
 
   post "/twats" do

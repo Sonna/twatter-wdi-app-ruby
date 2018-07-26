@@ -18,4 +18,8 @@ class Twat < ActiveRecord::Base
     BlockedUser.where(user_id: user_id).pluck(:blocker_id) +
       BlockedUser.where(blocker_id: user_id).pluck(:user_id)
   end
+
+  def like(user_id)
+    likes.find_by(user_id: user_id)
+  end
 end

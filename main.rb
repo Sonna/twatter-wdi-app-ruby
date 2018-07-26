@@ -6,9 +6,10 @@ $LOAD_PATH.push ROOT
 require "db_config"
 require "sinatra/base"
 require "apps/sessions/sessions_app"
-require "controllers/twats_controller"
-require "controllers/followed_users_controller"
 require "controllers/blocked_users_controller"
+require "controllers/followed_users_controller"
+require "controllers/likes_controller"
+require "controllers/twats_controller"
 require "models/comment"
 require "models/like"
 require "models/retwat"
@@ -20,6 +21,7 @@ class TwatterApp < Sinatra::Base
   use SessionsApp
   use TwatsController
   use BlockedUsersController
+  use LikesController
 
   helpers SessionsHelpers
 

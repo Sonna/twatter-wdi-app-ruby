@@ -5,7 +5,7 @@ require "test/test_helper"
 class TwatsRoutesTest < CurrentUserSession
   def test_twats_index_route
     get "/twats"
-    assert last_response.ok?
+    assert last_response.ok?, last_response.status
   end
 
   def test_twats_show_record_route

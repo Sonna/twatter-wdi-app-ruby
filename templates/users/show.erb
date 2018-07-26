@@ -12,17 +12,7 @@
     <section class="twats">
 
     <% @twats.each do |twat| %>
-      <%= erb :"twats/twat", locals: {
-        twat_id: twat.id,
-        twatter_id: twat.twatter.id,
-        name: twat.twatter.name,
-        username: twat.twatter.username,
-        image_url: twat.twatter.image_url,
-        likes: twat.likes.count,
-        retwats: twat.retwats.count,
-        comments_count: twat.comments.count,
-        message: twat.message
-      } %>
+      <%= erb :"twats/show", locals: { twat: twat } %>
     <% end %>
   </section>
 </section>

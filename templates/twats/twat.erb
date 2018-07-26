@@ -25,15 +25,26 @@
         <span class="count"><%= comments_count %></span>
       </button>
     </form>
-    <form action="/likes" method="post" class="action">
-      <input type="hidden" name="twat_id" value="<%= twat_id %>">
-      <input type="hidden" name="user_id" value="REMOVE ME -> look at current_user object">
-      <button>
-        <i class="far fa-heart"></i>
-        <span class="sr-only">Like</span>
-        <span class="count"><%= likes %></span>
-      </button>
-    </form>
+    <% if like %>
+      <form action="/likes/<%= like.id %>" method="post" class="action unlike-<%= like.id %>" >
+        <input type="hidden" name="_method" value="delete">
+        <!-- <input type="hidden" name="twat_id" value="<%= twat_id %>"> -->
+        <button>
+          <i class="fas fa-heart"></i>
+          <span class="sr-only">Unlike</span>
+          <span class="count"><%= likes_count %></span>
+        </button>
+      </form>
+    <% else %>
+      <form action="/likes" method="post" class="action like-<%= twat_id %>">
+        <input type="hidden" name="twat_id" value="<%= twat_id %>">
+        <button>
+          <i class="far fa-heart"></i>
+          <span class="sr-only">Like</span>
+          <span class="count"><%= likes_count %></span>
+        </button>
+      </form>
+    <% end %>
     <% unless current_user.id == twatter_id %>
       <form action="/retwats" method="post" class="action">
         <input type="hidden" name="twat_id" value="<%= twat_id %>">
@@ -41,7 +52,7 @@
         <button>
           <i class="fas fa-retweet"></i>
           <span class="sr-only">Retwat</span>
-          <span class="count"><%= retwats %></span>
+          <span class="count"><%= retwats_count %></span>
         </button>
       </form>
       <form action="/messages/new" class="action">

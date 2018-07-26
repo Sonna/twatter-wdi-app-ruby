@@ -7,6 +7,10 @@ require "test/test_helper"
 require "main"
 
 class TwatsControllerTest < CurrentUserSession
+  def setup
+    super
+  end
+
   def test_twats_index_action
     get "/twats"
     assert last_response.body.include?("Twatter")

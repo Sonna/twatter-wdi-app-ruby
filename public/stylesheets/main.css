@@ -110,6 +110,10 @@ img {
   border-bottom: lightblue 2px solid;
 }
 
+.navigation form {
+  display: inline-block;
+}
+
 .navigation .login-nav {
   display: inline-block;
 }

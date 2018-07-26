@@ -39,8 +39,9 @@ CREATE TABLE followers (
 );
 
 -- Blocked Users (for a given User ID, Block ID are Users who are & get unseen)
-DROP TABLE IF EXISTS block_users;
+DROP TABLE IF EXISTS blocked_users;
 CREATE TABLE blocked_users (
+  id SERIAL4 PRIMARY KEY,
   user_id INTEGER,
   blocked_id INTEGER
 );

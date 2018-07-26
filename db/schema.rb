@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 0) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "blocked_users", id: false, force: :cascade do |t|
+  create_table "blocked_users", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "blocked_id"
   end

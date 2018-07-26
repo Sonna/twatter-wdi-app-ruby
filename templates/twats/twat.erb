@@ -28,7 +28,6 @@
     <% if like %>
       <form action="/likes/<%= like.id %>" method="post" class="action unlike-<%= like.id %>" >
         <input type="hidden" name="_method" value="delete">
-        <!-- <input type="hidden" name="twat_id" value="<%= twat_id %>"> -->
         <button>
           <i class="fas fa-heart"></i>
           <span class="sr-only">Unlike</span>

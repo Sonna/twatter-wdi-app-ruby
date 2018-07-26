@@ -6,6 +6,7 @@ require "main"
 
 class BlockedUsersControllerTest < CurrentUserSession
   def setup
+    super
     @blockable_user = User.create(
       email: "blockable@controller.test", name: "Blocky",
       username: "blockable", password: "abcdefg123456"
@@ -26,7 +27,8 @@ class BlockedUsersControllerTest < CurrentUserSession
     post "/blocks", params
     follow_redirect!
 
-    refute last_response.body.include?("@#{@blockable_user.username}")
+    refute last_response.body.include?("@#{@blockable_user.username}"),
+           last_response.body
   ensure
     BlockedUser.find_by(params)&.destroy
   end

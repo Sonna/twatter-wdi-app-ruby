@@ -4,6 +4,7 @@ require "test/test_helper"
 
 class BlockedUsersRoutesTest < CurrentUserSession
   def setup
+    super
     @blockable_user = User.create(
       email: "blockable@route.test", name: "Blocky 2",
       username: "blocks_me", password: "987654321asdf"

@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   #                                  foreign_key: "blocked_id"
   # has_many :inverse_blocks, through: :inverse_blocked_users, source: :user
 
+  has_many :blocked_users
+  has_many :blockers, through: :blocked_users
   # has_many :comments
   # has_many :followers
   # has_many :following

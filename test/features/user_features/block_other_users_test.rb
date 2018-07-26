@@ -7,23 +7,24 @@ module UserFeatures
     def setup
       visit "/logout"
 
-      @user = MockUser.new("user@email.com", "Test User", "testusername",
-                           "password")
-      @blocker = MockUser.new("blocker@email.com", "Test Blocker",
-                              "testblocker", "password")
-      user = User.create(@user.to_h)
-      blocker = User.create(@blocker.to_h)
-
-      @user_twat = Twat.create(message: "Mesage is visible", user_id: user.id)
+      @user = User.create(
+        email: "user@email.com", name: "Test User",
+        username: "testusername", password: "password"
+      )
+      @blocker = User.create(
+        email: "blocker@email.com", name: "Test Blocker",
+        username: "testblocker", password: "password"
+      )
+      @user_twat = Twat.create(message: "Mesage is visible", user_id: @user.id)
       @blocker_twat =
-        Twat.create(message: "You cannot see me", user_id: blocker.id)
+        Twat.create(message: "You cannot see me", user_id: @blocker.id)
     end
 
     def teardown
-      cleanup_user_data(@user)
-      cleanup_user_data(@blocker)
-      @user_twat.destroy
-      @blocker_twat.destroy
+      @user_twat&.destroy
+      @blocker_twat&.destroy
+      @user&.destroy
+      @blocker&.destroy
     end
 
     def test_user_can_find_the_block_button
@@ -42,6 +43,9 @@ module UserFeatures
       login(@blocker.email, @blocker.password)
       within("#twat-#{@user_twat.id}") { click_on "Block" }
       refute page.has_content?("Mesage is visible")
+    ensure
+      blocked = BlockedUser.find_by(user_id: @blocker.id, blocker_id: @user.id)
+      blocked&.destroy
     end
 
     def test_a_blocked_user_cannot_see_blockers_twats
@@ -52,6 +56,9 @@ module UserFeatures
 
       login(@user.email, @user.password)
       refute page.has_content?("You cannot see me")
+    ensure
+      blocked = BlockedUser.find_by(user_id: @blocker.id, blocker_id: @user.id)
+      blocked&.destroy
     end
   end
 end

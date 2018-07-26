@@ -13,7 +13,7 @@ class BlockedUsersController < ApplicationController
 
   delete "/blocks/:id" do
     authorized?
-    BlockedUser.destroy(params[:id])
+    BlockedUser.find_by(id: params[:id], user_id: current_user.id)&.destroy
     redirect to("/")
   end
 end

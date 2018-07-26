@@ -79,6 +79,18 @@ img {
   position: absolute;
 }
 
+.card .actions button {
+  background-color: white;
+  border: none;
+  font-size: 1em;
+  padding: 5px;
+}
+
+.card .actions button:hover {
+  /*background-color: ghostwhite;*/
+  background-color: whitesmoke;
+}
+
 .card-container {
   display: inline-block;
   margin-left: 58px;

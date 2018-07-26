@@ -175,6 +175,24 @@ img {
   display: block;
 }
 
+.site-heading {
+  color: black;
+  text-decoration: none;
+}
+
+.site-heading:hover {
+  color: deepskyblue;
+  text-decoration: underline;
+}
+
+.site-heading:visit {
+  color: black;
+}
+
+.site-heading h1 {
+  margin-left: 10px;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

@@ -4,6 +4,11 @@ img {
   width: 100%;
 }
 
+/*.timeline {*/
+.activity-container {
+  width: 70%;
+}
+
 .card {
   color: black;
   background-color: white;
@@ -36,16 +41,17 @@ img {
   width: 50px;
 }
 
-.timeline {
-  width: 70%;
-}
-
 .profile .actions {
   border-top: solid grey 2px;
 }
 
 .profile .actions a {
   display: block;
+}
+
+/*.user {*/
+.profile-container {
+  width: 30%;
 }
 
 .sr-only {
@@ -57,8 +63,4 @@ img {
   overflow: hidden;
   clip: rect(0,0,0,0);
   border: 0;
-}
-
-.user {
-  width: 30%;
 }

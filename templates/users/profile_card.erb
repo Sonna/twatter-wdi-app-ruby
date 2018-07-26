@@ -1,16 +1,21 @@
 <article class="user-profile-card">
   <img src="/images/avatar3.png">
-  <h1 class="name"><%= name %></h1>
-  <span class="username"><%= "@#{username}" %></span>
+  <h1 class="name">
+    <%= name %>
+    <a href="/users/<%= username %>" class="username"><%= "@#{username}" %></a>
+  </h1>
   <section class="user-counts">
     <div class="twats">
-      Twats <span class="twats-count"><%= twats_count %></span>
+      <a href="/?twatter_id=<%= username %>" class="twats-count-heading">Twats</a>
+      <span class="twats-count"><%= twats_count %></span>
     </div>
     <div class="following">
-      Following <span class="followings-count"><%= following_count %></span>
+      <a href="/following/<%= username %>" class="followings-count-heading">Following</a>
+      <span class="followings-count"><%= following_count %></span>
     </div>
     <div class="followers">
-      Followers <span class="followers-count"><%= followers_count %></span>
+      <a href="/followers/<%= username %>" class="followers-count-heading">Followers</a>
+      <span class="followers-count"><%= followers_count %></span>
     </div>
   </section>
 </article>

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Twat < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, counter_cache: true
 
   has_many :comments
   has_many :likes

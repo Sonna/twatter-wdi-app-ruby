@@ -7,6 +7,7 @@ CREATE TABLE users (
   name VARCHAR(300) NOT NULL,
   email VARCHAR(300) NOT NULL,
   password_digest VARCHAR(400) NOT NULL,
+  twats_count INTEGER DEFAULT(0),
   followers_count INTEGER DEFAULT(0),
   following_count INTEGER DEFAULT(0)
 );
@@ -18,6 +19,7 @@ INSERT INTO users (id, username, name, email, password_digest) VAlUES (0, 'null_
 --   user_id INTEGER,
 --   name VARCHAR(300) NOT NULL,
 --   image_url VARCHAR(400),
+--   twats_count INTEGER DEFAULT(0),
 --   followers_count INTEGER DEFAULT(0),
 --   following_count INTEGER DEFAULT(0)
 -- );

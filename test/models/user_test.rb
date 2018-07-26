@@ -29,6 +29,18 @@ module Models
       assert @subject.respond_to?(:password_digest)
     end
 
+    def test_user_has_twats_count
+      assert @subject.respond_to?(:twats_count)
+    end
+
+    def test_user_has_followers_count
+      assert @subject.respond_to?(:followers_count)
+    end
+
+    def test_user_has_following_count
+      assert @subject.respond_to?(:following_count)
+    end
+
     def test_user_email_is_unique
       refute User.new(email: "fred@email.com", name: "Test fred",
                       username: "nottestfred", password: "password").valid?

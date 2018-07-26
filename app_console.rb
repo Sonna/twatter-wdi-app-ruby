@@ -10,29 +10,37 @@ def app_console
                                              follower_id: @grace.id)
 
   @grace_follows_harry
-  # => #<FollowedUser:0x00007f8fcb9a97e8
-  #     id: 29,
-  #     user_id: 1867,
-  #     follower_id: 1866>
+  # => #<FollowedUser:0x00007fca2617db38
+  #     id: 97,
+  #     user_id: 2370,
+  #     follower_id: 2369>
+  @grace.reload.followers_count # => 0
   @grace.followers
   # => []
+  @grace.following_count # => 1
   @grace.following
-  # => [#<User:0x00007f8fce2a2898
-  #      id: 1867,
+  # => [#<User:0x00007fca26938990
+  #      id: 2370,
   #      username: "testharry",
   #      name: "Test harry",
   #      email: "harry@email.com",
   #      password_digest:
-  #       "$2a$10$GUj30NvELSXsm1oNCU0ngemHY/Ce3iKWkkC7HlehVYF4/cYo/sDgq">]
+  #       "$2a$10$2K3Sf0RwM1Y0nUCno1jFxuDHRI3GR98hMxN8bERtZ02ImeQYXOlMe",
+  #      followers_count: 1,
+  #      following_count: 0>]
 
+  @harry.reload.followers_count # => 1
   @harry.followers
-  # => [#<User:0x00007f8fce278728
-  #      id: 1866,
+  # => [#<User:0x00007fca259233e8
+  #      id: 2369,
   #      username: "testgrace",
   #      name: "Test grace",
   #      email: "grace@email.com",
   #      password_digest:
-  #       "$2a$10$XaJURT5pHOT0qXnhyTmos.7A46pH36lABRizdrj/3kWZUhiXaXm4i">]
+  #       "$2a$10$Lo4drGvEcjCI3lVb/INjce8zfy52mooJ/90GkODroeU8G/7Ic.DD6",
+  #      followers_count: 0,
+  #      following_count: 1>]
+  @harry.following_count # => 0
   @harry.following
   # => []
 

@@ -34,6 +34,7 @@ class TwatterApp < Sinatra::Base
 
   get("/") do
     @twats = Twat.filtered(current_user).most_recent.limit(10)
+    @twats = Twat.default(current_user) if logged_in?
     @twats = @twats.posted_by(params["twatter_id"]) if params["twatter_id"]
     erb :index
   end

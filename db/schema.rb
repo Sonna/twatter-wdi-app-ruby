@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "twat_id"
   end
 
-  create_table "followers", id: :serial, force: :cascade do |t|
+  create_table "followed_users", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "follower_id"
   end

@@ -31,8 +31,8 @@ CREATE TABLE twats (
 );
 
 -- Followed Users (their Twats get added to their User timeline)
-DROP TABLE IF EXISTS followers;
-CREATE TABLE followers (
+DROP TABLE IF EXISTS followed_users;
+CREATE TABLE followed_users (
   id SERIAL4 PRIMARY KEY,
   user_id INTEGER,
   follower_id INTEGER

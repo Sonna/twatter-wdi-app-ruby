@@ -1,6 +1,7 @@
 AllCops:
   TargetRubyVersion: 2.5
   Exclude:
+  - "app_console.rb"
   - "db/schema.rb"
   - "vendor/**/*"
 

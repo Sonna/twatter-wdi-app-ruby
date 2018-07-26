@@ -11,14 +11,8 @@ class Twat < ActiveRecord::Base
   alias_attribute :twatter_id, :user_id
 
   scope :all_mine, ->(user) { where(user_id: user.id) }
-  scope :filtered, lambda { |user|
-    # left_outer_joins(:blocks).where(blocks: { id: user.id })
-    # where.not(user_id: [])
-    where.not(user_id: blocked_user_ids(user.id))
-    #   BlockedUser.where(user_id: user.id).pluck(:blocker_id) +
-    #     BlockedUser.where(blocker_id: user.id).pluck(:user_id)
-    # )
-  }
+  scope :filtered, ->(user) { where.not(user_id: blocked_user_ids(user.id)) }
+  scope :most_recent, -> { order(created_at: :asc) }
 
   def self.blocked_user_ids(user_id)
     BlockedUser.where(user_id: user_id).pluck(:blocker_id) +

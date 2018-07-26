@@ -8,6 +8,7 @@ require "sinatra/base"
 require "apps/sessions/sessions_app"
 require "controllers/blocked_users_controller"
 require "controllers/followed_users_controller"
+require "controllers/followers_controller"
 require "controllers/likes_controller"
 require "controllers/twats_controller"
 require "controllers/users_controller"
@@ -23,6 +24,7 @@ class TwatterApp < Sinatra::Base
   use UsersController
   use TwatsController
   use BlockedUsersController
+  use FollowersController
   use FollowedUsersController
   use LikesController
 

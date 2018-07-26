@@ -1,0 +1,6 @@
+<section class="followers">
+  <h2>All Followers</h2>
+  <% followers.each do |follower| %>
+    <%= erb :"users/profile_card", locals: follower.attributes %>
+  <% end %>
+</section>

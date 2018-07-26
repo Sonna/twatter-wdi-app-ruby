@@ -28,7 +28,7 @@ class SessionsApp < Sinatra::Base
 
   delete "/session" do
     session[:user_id] = nil
-    redirect "/login"
+    redirect "/"
   end
 
   get("/signup") { erb :signup }

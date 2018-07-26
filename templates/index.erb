@@ -1,15 +1,11 @@
 <section class="profile-container">
-  <article class="profile">
-    <img src="/images/avatar3.png">
-    <h1>John Doe</h1>
-    <p>Following <a href="#">1</a></p>
-    <p>Followers <a href="#">2</a></p>
+  <% if logged_in? %>
+    <%= erb :"users/profile_card", locals: current_user.attributes %>
     <nav class="actions">
       <a href="#">Profile</a>
       <a href="#">Sign Out</a>
     </nav>
-  </article>
-
+  <% end %>
 </section>
 
 <section class="activity-container">

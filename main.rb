@@ -27,6 +27,7 @@ class TwatterApp < Sinatra::Base
 
   # before { redirect "/login" unless session[:user_id] }
 
+  set :method_override, true
   set(:views, File.join(settings.root, "templates"))
 
   get("/") do
@@ -44,6 +45,12 @@ class TwatterApp < Sinatra::Base
                  .posted_by(@twatter.id)
                  .limit(10)
     erb :"users/show"
+  end
+
+  delete "/likes/:id" do
+    # authorized?
+    Like.destroy(params[:id])
+    redirect to("/")
   end
 
   # post("/likes") { redirect "/timeline?twat_id=#{params["twat_id"]}" }

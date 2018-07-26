@@ -8,6 +8,7 @@ class ApplicationController < Sinatra::Base
   # helpers ApplicationHelpers
   helpers SessionsHelpers
 
+  set :method_override, true
   set :views, File.expand_path(ROOT, "/templates")
   enable :sessions
 

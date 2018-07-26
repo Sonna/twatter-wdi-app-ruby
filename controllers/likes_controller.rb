@@ -13,7 +13,8 @@ class LikesController < ApplicationController
   delete "/likes/:id" do
     authorized?
     # Like.find_by(id: params[:id], user_id: current_user.id)&.destroy
-    Like.find(params[:id])&.destroy
+    # Like.find(params[:id])&.destroy
+    Like.destroy(params[:id])
     redirect to("/")
   end
 end

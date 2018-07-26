@@ -56,6 +56,9 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "name", limit: 300, null: false
     t.string "email", limit: 300, null: false
     t.string "password_digest", limit: 400, null: false
+    t.integer "twats_count", default: 0
+    t.integer "followers_count", default: 0
+    t.integer "following_count", default: 0
   end
 
 end

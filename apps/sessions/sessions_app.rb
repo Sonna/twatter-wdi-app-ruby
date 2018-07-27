@@ -14,7 +14,7 @@ class SessionsApp < Sinatra::Base
 
   helpers SessionsHelpers
 
-  get("/login") { erb :login }
+  get("/login") { erb :login, layout: :authenticate }
 
   post "/session" do
     user = User.find_by(email: params[:email])
@@ -22,7 +22,7 @@ class SessionsApp < Sinatra::Base
       session[:user_id] = user.id
       redirect "/"
     else
-      erb :login
+      erb :login, layout: :authenticate
     end
   end
 
@@ -38,6 +38,6 @@ class SessionsApp < Sinatra::Base
     user = User.new(email: params[:email], password: params[:password],
                     username: params[:username], name: params[:name])
     redirect "/" if user.valid? && user.save
-    erb :signup
+    erb :signup, layout: :authenticate
   end
 end

@@ -98,6 +98,7 @@ img {
 
 .container {
   display: flex;
+  flex-wrap: wrap;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -121,6 +122,31 @@ img {
 .head h1 .post-date {
   color: gray;
   font-weight: 400;
+}
+
+.followers {
+  display: flex;
+  /*flex-basis: 100%;*/
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.followers h2 {
+  /*flex-basis: 100%;*/
+  width: 100%;
+}
+
+.followers .user-profile-card {
+  border: 1px solid lightgray;
+  margin: 10px;
+  padding: 10px;
+  width: 100%;
+}
+
+@media (min-width: 800px) {
+  .followers .user-profile-card {
+    width: 25%;
+  }
 }
 
 .form-input {
@@ -168,7 +194,7 @@ img {
 /*.user {*/
 .profile-container {
   margin-right: 5px;
-  width: 30%;
+  width: 27%;
 }
 
 .retwated_by {
@@ -225,6 +251,7 @@ img {
 .user-counts .followers,
 .user-counts .twats {
   display: inline-block;
+  width: 33.2%;
 }
 
 .user-counts .followings-count,

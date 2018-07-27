@@ -15,10 +15,10 @@ Twat.create(message: "Maybe likes pudding.", user_id: User.find_by(username: "ka
 Twat.create(message: "Loving life, and Cake", user_id: User.find_by(username: "cakelover").id)
 Twat.create(message: "Having my Cake, and loving it too", user_id: User.find_by(username: "cakelover").id)
 
-Twat.create(message: "DO", user_id: User.find_by(username: "iframes").id)
-Twat.create(message: "NOT", user_id: User.find_by(username: "iframes").id)
-Twat.create(message: "USE", user_id: User.find_by(username: "iframes").id)
 Twat.create(message: "THE ELEMENT THAT SHALL NOT BE NAMED", user_id: User.find_by(username: "iframes").id)
+Twat.create(message: "USE", user_id: User.find_by(username: "iframes").id)
+Twat.create(message: "NOT", user_id: User.find_by(username: "iframes").id)
+Twat.create(message: "DO", user_id: User.find_by(username: "iframes").id)
 
 FollowedUser.create(user_id: User.find_by(username: "dt").id, follower_id: User.find_by(username: "kasun").id)
 FollowedUser.create(user_id: User.find_by(username: "kasun").id, follower_id: User.find_by(username: "dt").id)

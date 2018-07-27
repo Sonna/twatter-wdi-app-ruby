@@ -20,7 +20,7 @@ class Twat < ActiveRecord::Base
 
   scope :following, ->(user) { where(user_id: followed_user_ids(user)) }
   scope :filtered, ->(user) { where.not(user_id: blocked_user_ids(user.id)) }
-  scope :most_recent, -> { order(created_at: :asc) }
+  scope :most_recent, -> { order(created_at: :desc) }
   scope :posted_by, ->(user_id) { where(user_id: user_id) }
   scope :retwats, ->(user) { where(id: retwat_ids(user)) }
 

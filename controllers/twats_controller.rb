@@ -33,7 +33,8 @@ class TwatsController < ApplicationController
       created_at: Date.today,
       updated_at: Date.today
     )
-    redirect to("/twats/#{@twat.id}")
+    redirect to("/")
+    # redirect to("/twats/#{@twat.id}")
   end
 
   get "/twats/:id/edit" do

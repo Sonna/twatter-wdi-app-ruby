@@ -3,10 +3,16 @@
     <a href="/login">login</a>
     <a href="/users/new">signup</a>
   <% else %>
-    <span class="user">logged in as <%= current_user.email %></span>
-    <form action="/session" method="post">
+    <span class="user">
+      logged in as
+      <a href="/users/<%= current_user.username %>">@<%= current_user.username %></a>
+    </span>
+    <form action="/session" method="post" class="logout-form">
       <input type="hidden" name="_method" value="delete">
-      <button>logout</button>
+      <button>
+        <i class="fas fa-sign-out-alt"></i>
+        logout
+      </button>
     </form>
   <% end %>
 </section>

@@ -153,6 +153,26 @@ img {
   width: 100%;
 }
 
+.logout-form button {
+  border-radius: 100px;
+  border-style: solid;
+  border-color: lightblue;
+  border-width: 1px;
+  font-size: 0.7em;
+  padding: 5px;
+}
+
+.logout-form button {
+  background-color: white;
+  color: skyblue;
+}
+
+.logout-form button:hover {
+  background-color: darkblue;
+  color: white;
+  cursor: pointer;
+}
+
 .navigation {
   background-color: white;
   box-shadow: 0 5px 3px 0 rgba(0,0,0,0.12);
@@ -286,7 +306,8 @@ img {
 
 .user-profile-card .follow button:hover,
 .user-profile-card .unfollow button:hover {
-  background-color: blue;
+  background-color: darkblue;
+  color: white;
   cursor: pointer;
 }
 

@@ -28,6 +28,6 @@ class FormTemplateTest < Minitest::Test
   end
 
   def test_twat_form_partial_template_has_a_post_button
-    assert_match %r{<button>post</button>}, @subject
+    assert_match %r{<button>(.|\n)*post(.|\n)*</button>}, @subject
   end
 end

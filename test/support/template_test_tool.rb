@@ -9,7 +9,7 @@ module TemplateTestTool
 
     STUBBED_HELPERS = %w[logged_in?].freeze
     STUBBED_LOCALS = %w[
-      image_url twat_id comments_count likes retwats twatter_id message
+      id image_url twat_id comments_count likes retwats twatter_id message
     ].freeze
 
     def self.create_method
@@ -25,9 +25,9 @@ module TemplateTestTool
       @attributes = hash
     end
 
-    LocalUser = Struct.new(:id)
+    LocalUser = Struct.new(:id, :image_url)
     def current_user
-      LocalUser.new(nil)
+      LocalUser.new(nil, nil)
     end
 
     def erb(path, *args)

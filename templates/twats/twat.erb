@@ -18,6 +18,10 @@
           <span class="sr-only">Block</span>
         </button>
       </form>
+    <% else %>
+      <% if current_user.id == twatter_id %>
+        <a class="edit" href="/twats/<%= twat_id %>/edit">edit</a>
+      <% end %>
     <% end %>
   </header>
   <section class="body">

@@ -31,8 +31,8 @@ class SessionsApp < Sinatra::Base
     redirect "/"
   end
 
-  get("/signup") { erb :signup }
-  get("/users/new") { erb :signup }
+  get("/signup") { erb :signup, layout: :authenticate }
+  get("/users/new") { erb :signup, layout: :authenticate }
 
   post "/users" do
     user = User.new(email: params[:email], password: params[:password],

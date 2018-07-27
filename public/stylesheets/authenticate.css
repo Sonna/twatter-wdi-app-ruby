@@ -50,19 +50,29 @@ label {
   margin-bottom: 15px;
 }
 
-.login {
+.login,
+.signup {
   margin: 0 auto;
   width: 100%;
 }
 
 @media (min-width: 800px) {
-  .login {
+  .login,
+  .signup {
     width: 600px;
   }
 }
 
 .login header {
   background-color: #5cb85c;
+}
+
+.signup header {
+  background-color: #3e81b8;
+}
+
+.login header,
+.signup header {
   border-bottom: 1px solid #e5e5e5;
   color: white;
   font-size: 30px;
@@ -70,7 +80,8 @@ label {
   padding: 35px 50px;
 }
 
-.login button:hover {
+.login button:hover,
+.signup button:hover {
   color: #fff;
   background-color: #449d44;
   border-color: #398439;
@@ -78,10 +89,18 @@ label {
 }
 
 .login button {
+  background-color: #5cb85c;
+}
+
+.signup button {
+  background-color: #3e81b8;
+}
+
+.login button,
+.signup button {
   display: block;
   width: 100%;
   color: #fff;
-  background-color: #5cb85c;
   border-color: #4cae4c;
   display: inline-block;
   padding: 6px 12px;
@@ -104,13 +123,15 @@ label {
   border-radius: 4px;
 }
 
-.login footer {
+.login footer,
+.signup footer {
   background-color: #f9f9f9;
   padding: 15px;
   text-align: right;
   border-top: 1px solid #e5e5e5;
 }
 
-.login footer p {
+.login footer p,
+.signup footer p {
   margin: 0 0 10px;
 }

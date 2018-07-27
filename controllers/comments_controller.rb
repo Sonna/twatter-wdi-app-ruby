@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     @comment = Comment.create(
       content: params[:content],
       twat_id: params[:twat_id],
-      user_id: current_user.id,
+      user_id: current_user.id
     )
     redirect to("/twats/#{params[:twat_id]}")
   end

@@ -41,6 +41,10 @@ class Twat < ActiveRecord::Base
     likes.find_by(user_id: user_id)
   end
 
+  def retwat(user_id)
+    retwats.find_by(user_id: user_id)
+  end
+
   # rubocop:disable Metrics/AbcSize
   def retwat?(user)
     !user.id.zero? && twatter_id != user.id &&

@@ -11,6 +11,7 @@ require "controllers/followed_users_controller"
 require "controllers/following_controller"
 require "controllers/followers_controller"
 require "controllers/likes_controller"
+require "controllers/retwats_controller"
 require "controllers/twats_controller"
 require "controllers/users_controller"
 require "models/comment"
@@ -29,6 +30,7 @@ class TwatterApp < Sinatra::Base
   use FollowingController
   use FollowedUsersController
   use LikesController
+  use RetwatsController
 
   helpers SessionsHelpers
 

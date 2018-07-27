@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "date"
-
 require "controllers/application_controller"
 require "models/followed_user"
 require "models/user"

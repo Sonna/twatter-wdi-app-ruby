@@ -64,6 +64,7 @@ img {
   border-bottom: 1px solid lightgray;
   padding: 5px;
   position: relative;
+  width: 100%;
 }
 
 .card time:before {
@@ -94,6 +95,41 @@ img {
 .card-container {
   display: inline-block;
   margin-left: 58px;
+}
+
+.comments {
+  width: 100%;
+}
+
+.comment {
+  display: flex;
+  background-color: ghostwhite;
+  margin: 0;
+  padding: 10px;
+}
+
+.comment + .comment {
+  border-top: 1px solid lightgray;
+}
+
+.comment-form {
+  position: relative;
+}
+
+.comment-form button {
+  background-color: white;
+  border: 1px solid lightgray;
+  line-height: 1em;
+  padding: 14px;
+  position: absolute;
+  right: 0;
+}
+
+.comment-form input {
+  font-size: 0.9em;
+  line-height: 1em;
+  padding: 10px;
+  width: 100%;
 }
 
 .container {
@@ -259,6 +295,23 @@ img {
 
 .timeline {
   margin-top: 10px;
+}
+
+.user-chip {
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+}
+
+.user-chip h1 {
+  display: inline-block;
+}
+
+.user-chip img,
+.user-profile-card img {
+  border-radius: 50%;
+  display: inline-block;
+  width: 50px;
 }
 
 .user-counts {

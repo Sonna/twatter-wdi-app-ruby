@@ -1,0 +1,9 @@
+<%= erb :"twats/show", locals: { twat: twat } %>
+
+<section class="comments">
+  <% @twat.comments.each do |comment| %>
+    <%= erb :"comments/show", locals: comment.attributes.merge(user: comment.user) %>
+  <% end %>
+
+  <%= erb :"comments/form", locals: { twat_id: twat.id } %>
+</section>

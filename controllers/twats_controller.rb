@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "date"
-
 require "controllers/application_controller"
 require "models/twat"
 
@@ -22,17 +20,13 @@ class TwatsController < ApplicationController
   get "/twats/:id" do
     authorized?
     @twat = Twat.find(params[:id])
-    erb :"twats/show", layout: :"layouts/default", locals: { twat: @twat }
+    erb :"twats/show_with_comments", layout: :"layouts/default",
+                                     locals: { twat: @twat }
   end
 
   post "/twats" do
     authorized?
-    @twat = Twat.create(
-      message: params[:message],
-      user_id: current_user.id,
-      created_at: Date.today,
-      updated_at: Date.today
-    )
+    @twat = Twat.create(message: params[:message], user_id: current_user.id)
     redirect to("/")
     # redirect to("/twats/#{@twat.id}")
   end
@@ -46,7 +40,7 @@ class TwatsController < ApplicationController
   put "/twats/:id" do
     authorized?
     @twat = Twat.find(params[:id])
-    @twat&.update(message: params[:message], updated_at: Date.today)
+    @twat&.update(message: params[:message], updated_at: Time.now)
     redirect to("/twats/#{@twat.id}")
   end
 

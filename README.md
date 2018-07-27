@@ -66,6 +66,7 @@ tests and then use the setup test suite to proceed forward.
 ## Things learned
 
 - More about Sinatra and its Modular setup
+- One-off button resource creation (they are weirdly effective)
 - Rebuilt lost test suite for interacting with a CRUD application
 
 ## Unsolved/Unresolved Problems

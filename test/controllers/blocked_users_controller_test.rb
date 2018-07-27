@@ -41,7 +41,8 @@ class BlockedUsersControllerTest < CurrentUserSession
     delete "/blocks/#{blocked_user.id}"
     follow_redirect!
 
-    assert last_response.body.include?("@#{@blockable_user.username}")
+    # assert last_response.body.include?("@#{@blockable_user.username}")
+    assert last_response.body.include?("blockable_user's twat")
   ensure
     blocked_user&.destroy
   end

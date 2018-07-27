@@ -19,10 +19,9 @@ class CurrentUserSession < Minitest::Test
   end
 
   def current_user
-    unless (user = User.find_by(email: "test@sinatra.app"))
-      user = User.new(username: "testuser", email: "test@sinatra.app",
-                      name: "Test User")
-      user.password = "password"
+    unless (user = User.find_by(email: user_details[:email]))
+      user = User.new(user_details)
+
       user.save
     end
     user
@@ -34,5 +33,13 @@ class CurrentUserSession < Minitest::Test
 
   def be_redirect
     302
+  end
+
+  # Override this method to change Users between tests
+  def user_details
+    {
+      username: "testuser", email: "test@sinatra.app",
+      name: "Test User", password: "password"
+    }
   end
 end

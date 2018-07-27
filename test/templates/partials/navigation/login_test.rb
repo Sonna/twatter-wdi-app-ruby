@@ -23,7 +23,13 @@ class LoginTemplateTest < Minitest::Test
     # <span class="user">logged in as <%= current_user.email %></span>
     def test_login_username_in_navigation
       subject = erb(:"partials/navigation/login", self)
-      assert_match "logged in as LoginTemplateTest", subject
+      assert_match(
+        Regexp.new(
+          "logged in as(.|\n)*" \
+          "<a href=\"/users/logintemplatetest\">@logintemplatetest</a>"
+        ),
+        subject
+      )
     end
 
     # <form action="/session" method="post">
@@ -35,9 +41,9 @@ class LoginTemplateTest < Minitest::Test
       assert_match "logout", subject
     end
 
-    MockUser = Struct.new(:email)
+    MockUser = Struct.new(:email, :username)
     def current_user
-      MockUser.new("LoginTemplateTest")
+      MockUser.new("LoginTemplateTest", "logintemplatetest")
     end
 
     def logged_in?

@@ -41,19 +41,22 @@ module Templates
       end
 
       def test_user_profile_card_template_contains_twat_count
-        assert_match(%r{Twats <span class="twats-count">5</span>}, @subject)
+        assert_match(
+          %r{Twats(.|\n)*<span class="twats-count">5</span>},
+          @subject
+        )
       end
 
       def test_user_profile_card_template_contains_following_count
         assert_match(
-          %r{Following <span class="followings-count">41</span>},
+          %r{Following(.|\n)*<span class="followings-count">41</span>},
           @subject
         )
       end
 
       def test_user_profile_card_template_contains_followers_count
         assert_match(
-          %r{Followers <span class="followers-count">8</span>},
+          %r{Followers(.|\n)*<span class="followers-count">8</span>},
           @subject
         )
       end

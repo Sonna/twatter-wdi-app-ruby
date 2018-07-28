@@ -9,18 +9,17 @@ module UserFeatures
     end
 
     def test_user_can_login
-      user = MockUser.new("test@email.com", "Test User", "testusername",
-                          "password")
-      User.create(user.to_h)
+      user = User.create(email: "canlogin@email.com", name: "CanLogin Test",
+                         username: "canlogintest", password: "password")
 
-      login(user.email, user.password)
+      login(user.email, "password")
 
-      assert page.has_content?("logged in as test@email.com")
+      assert page.has_content?("logged in as @canlogintest")
+      # assert page.has_content?("CanLogin Test")
+      # assert page.has_content?("@canlogintest")
       assert page.has_content?("logout")
     ensure
-      attributes = user.to_h
-      attributes.delete(:password)
-      User.find_by(attributes).destroy
+      user&.destroy
     end
   end
 end

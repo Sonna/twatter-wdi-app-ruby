@@ -1,7 +1,9 @@
 <form id="twat-form" action="/twats" method="post">
   <img class="form-user-img" src="<%= current_user.image_url %>" title="User's profile picture">
   <label class="sr-only" for="message">message</label>
-  <input type="text" name="message" placeholder="What's happening?">
+  <div class="form-group">
+    <input type="text" name="message" placeholder="What's happening?">
+  </div>
   <button>
     <i class="fas fa-pen"></i>
     <span class="sr-only">post</span>

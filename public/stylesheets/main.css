@@ -20,45 +20,64 @@ img {
 }
 
 #twat-form {
-  background-color: lightblue;
+  background-color: aliceblue;
   padding: 5px;
   position: relative;
 }
 
+#twat-form button {
+  background-color: white;
+  border: 1px lightgray solid;
+  border-radius: 8px;
+  line-height: 20px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  position: absolute;
+  right: 3px;
+  top: 5px;
+}
+
+#twat-form button:hover {
+  background-color: whitesmoke;
+}
+
+#twat-form input {
+  background: #fff;
+  border: 1px solid lightskyblue;
+  border-radius: 8px;
+  font-size: 1em;
+  line-height: 20px;
+  padding: 10px;
+  width: 100%;
+}
+
+#twat-form .form-group {
+  margin-left: 58px;
+}
+
 #twat-form .form-user-img {
-  float: left;
+  margin-left: 20px;
+  width: 30px;
 }
 
 #twat-form .form-user-img,
 .card img {
   border-radius: 50%;
   display: inline-block;
-  width: 50px;
-}
-
-#twat-form .form-user-img {
-  padding-right: 10px;
-  /*position: absolute;*/
-}
-
-#twat-form input {
-  line-height: 10px;
-  padding: 10px;
-  width: 80%;
-}
-
-#twat-form button {
-  background-color: white;
-  border: 1px solid lightgray;
-  line-height: 10px;
-  padding: 12px;
   position: absolute;
-  right: 5px;
 }
 
 .activity-container {
-  margin-left: 5px;
-  width: 70%;
+  width: 100%;
+}
+
+@media (min-width: 800px) {
+  .activity-container {
+    margin-left: 5px;
+    width: 70%;
+  }
 }
 
 .card {
@@ -80,7 +99,7 @@ img {
 }
 
 .card img {
-  position: absolute;
+  width: 50px;
 }
 
 .card .actions button {
@@ -265,10 +284,15 @@ img {
   display: block;
 }
 
-/*.user {*/
 .profile-container {
-  margin-right: 5px;
-  width: 27%;
+  width: 100%;
+}
+
+@media (min-width: 800px) {
+  .profile-container {
+    margin-right: 5px;
+    width: 27%;
+  }
 }
 
 .retwated_by {
@@ -308,10 +332,6 @@ img {
   z-index: 1;
 }
 
-.timeline {
-  margin-top: 10px;
-}
-
 .user-chip {
   display: inline-block;
   position: absolute;
@@ -349,6 +369,11 @@ img {
 .user-counts .twats-count,
 .user-counts .twats-count-heading {
   display: block;
+}
+
+.user-profile-card {
+  background-color: white;
+  padding: 10px;
 }
 
 .user-profile-card .actions {

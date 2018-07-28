@@ -25,7 +25,7 @@ class LoginTemplateTest < Minitest::Test
       subject = erb(:"partials/navigation/login", self)
       assert_match(
         Regexp.new(
-          "logged in as(.|\n)*" \
+          'logged in as(.|\n)*' \
           "<a href=\"/users/logintemplatetest\">@logintemplatetest</a>"
         ),
         subject

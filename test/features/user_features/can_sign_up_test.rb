@@ -16,6 +16,9 @@ module UserFeatures
 
       refute page.has_content?("logged in as test@email.com")
       assert page.has_content?("login"), page
+    ensure
+      User.find_by(email: "test@email.com", name: "Test User",
+                   username: "testusername")&.destroy
     end
   end
 end

@@ -25,14 +25,15 @@ class LikesControllerTest < CurrentUserSession
     params = { twat_id: @likeable_twat.id }
 
     post "/likes", params
-    follow_redirect!
+    # follow_redirect!
+    get "/users/#{@likeable_user.username}"
 
     # assert last_response.body.include?("Like 1")
     # refute last_response.body.include?("Like 0")
-    assert last_response.body.include?(<<-HTML)
-          <span class="sr-only">Unlike</span>
-          <span class="count">1</span>
-    HTML
+    assert_match Regexp.new(
+      '<span class="sr-only">Unlike</span>(.|\n)*' \
+        "<span class=\"count\">1</span>"
+    ), last_response.body
   ensure
     Like.find_by(params)&.destroy
   end
@@ -43,14 +44,15 @@ class LikesControllerTest < CurrentUserSession
     )
 
     delete "/likes/#{like.id}"
-    follow_redirect!
+    # follow_redirect!
+    get "/users/#{@likeable_user.username}"
 
     # assert last_response.body.include?("Like 0")
     # refute last_response.body.include?("Like 1")
-    assert last_response.body.include?(<<-HTML)
-          <span class="sr-only">Like</span>
-          <span class="count">0</span>
-    HTML
+    assert_match Regexp.new(
+      '<span class="sr-only">Like</span>(.|\n)*' \
+        "<span class=\"count\">0</span>"
+    ), last_response.body
   ensure
     like&.destroy
   end

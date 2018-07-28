@@ -25,9 +25,10 @@ class BlockedUsersControllerTest < CurrentUserSession
     params = { user_id: current_user.id, blocker_id: @blockable_user.id }
 
     post "/blocks", params
-    follow_redirect!
+    # follow_redirect!
+    get "/users/#{@blockable_user.username}"
 
-    refute last_response.body.include?("@#{@blockable_user.username}"),
+    refute last_response.body.include?("blockable_user's twat"),
            last_response.body
   ensure
     BlockedUser.find_by(params)&.destroy
@@ -39,7 +40,8 @@ class BlockedUsersControllerTest < CurrentUserSession
     )
 
     delete "/blocks/#{blocked_user.id}"
-    follow_redirect!
+    # follow_redirect!
+    get "/users/#{@blockable_user.username}"
 
     # assert last_response.body.include?("@#{@blockable_user.username}")
     assert last_response.body.include?("blockable_user's twat")

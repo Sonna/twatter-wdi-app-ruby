@@ -1,6 +1,7 @@
 # WDI Project 2 - CRUD application
 
 [![CircleCI](https://circleci.com/gh/Sonna/twatter-wdi-app-ruby.svg?style=svg)](https://circleci.com/gh/Sonna/twatter-wdi-app-ruby)
+[![Coverage Status](https://coveralls.io/repos/github/Sonna/twatter-wdi-app-ruby/badge.svg?branch=master)](https://coveralls.io/github/Sonna/twatter-wdi-app-ruby?branch=master)
 
 To preview the following application, please find it running at the following
 link:

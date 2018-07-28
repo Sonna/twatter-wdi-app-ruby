@@ -10,6 +10,8 @@ class Twat < ActiveRecord::Base
   alias_attribute :twatter, :user
   alias_attribute :twatter_id, :user_id
 
+  delegate :image_url, to: :user, allow_nil: true
+
   scope :default, lambda { |user|
     # filtered(user).following(user).or(posted_by(user.id)).most_recent
     # filtered(user).following(user).or(retwats(user)).most_recent

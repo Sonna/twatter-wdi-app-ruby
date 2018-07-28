@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "following_count", default: 0
     t.datetime "created_at", default: -> { "now()" }
     t.datetime "updated_at", default: -> { "now()" }
+    t.string "image_url", limit: 500
   end
 
 end

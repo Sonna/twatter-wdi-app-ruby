@@ -6,6 +6,7 @@ CREATE TABLE users (
   username VARCHAR(300) NOT NULL,
   name VARCHAR(300) NOT NULL,
   email VARCHAR(300) NOT NULL,
+  image_url VARCHAR(500),
   password_digest VARCHAR(400) NOT NULL,
   twats_count INTEGER DEFAULT(0),
   followers_count INTEGER DEFAULT(0),

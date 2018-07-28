@@ -31,6 +31,6 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
 
   def image_url
-    "/images/avatar3.png"
+    attributes["image_url"] || "/images/avatar3.png"
   end
 end

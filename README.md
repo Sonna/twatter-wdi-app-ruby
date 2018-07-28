@@ -1,5 +1,7 @@
 # WDI Project 2 - CRUD application
 
+[![CircleCI](https://circleci.com/gh/Sonna/twatter-wdi-app-ruby.svg?style=svg)](https://circleci.com/gh/Sonna/twatter-wdi-app-ruby)
+
 To preview the following application, please find it running at the following
 link:
 

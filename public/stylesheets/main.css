@@ -280,17 +280,19 @@ img {
   padding-right: 10px;
   text-decoration: none;
   text-transform: capitalize;
+  transition: all .15s ease-in-out;
 }
 
 .navigation a:hover {
   border-bottom: 2px solid #1c94e0;
   color: deepskyblue;
   padding-bottom: 12px;
-  transition: all .15s ease-in-out;
 }
 
 .navigation a.active {
-  border-bottom: lightblue 2px solid;
+  border-bottom: 2px solid #1c94e0;
+  color: deepskyblue;
+  padding-bottom: 12px;
 }
 
 .navigation form {

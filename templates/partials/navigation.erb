@@ -1,7 +1,7 @@
 <nav id="navbar" class="navigation sticky">
   <section class="main">
-    <a href="/">Home</a>
-    <a href="/twats">Twats</a>
+    <a href="/" class="<%= request.path_info == "/" ? "active" : "" %>">Home</a>
+    <a href="/twats" class="<%= request.path_info == "/twats" ? "active" : "" %>">Twats</a>
   </section>
   <section>
     <a class="site-heading" href="/">

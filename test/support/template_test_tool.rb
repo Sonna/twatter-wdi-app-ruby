@@ -20,6 +20,7 @@ module TemplateTestTool
     STUBBED_LOCALS.each(&create_method)
 
     def initialize(**hash)
+      @path_info = "/"
       # args.each instance_variable_set(name, value)
       hash.each(&method(:instance_variable_set))
       @attributes = hash
@@ -41,6 +42,11 @@ module TemplateTestTool
 
     def respond_to_missing?(method_name, include_private = false)
       attributes.key?("@#{method_name}".to_sym) || super
+    end
+
+    LocalRequest = Struct.new(:path_info)
+    def request
+      LocalRequest.new(@path_info)
     end
   end
 

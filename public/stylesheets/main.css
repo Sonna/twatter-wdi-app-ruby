@@ -1,6 +1,7 @@
 * { box-sizing: border-box; }
 
 body {
+  background-color: #e6ecf0;
   font-family: 'Open Sans', sans-serif;
   margin: 0;
   padding: 0;
@@ -8,6 +9,10 @@ body {
 
 h1, h2, h3, h4, h5 {
   font-family: 'Roboto', sans-serif;
+}
+
+header.header {
+  height: 60px;
 }
 
 img {
@@ -51,9 +56,7 @@ img {
   right: 5px;
 }
 
-/*.timeline {*/
 .activity-container {
-  background-color: lightgray;
   margin-left: 5px;
   width: 70%;
 }
@@ -211,20 +214,30 @@ img {
 
 .navigation {
   background-color: white;
-  box-shadow: 0 5px 3px 0 rgba(0,0,0,0.12);
+  border-bottom: 1px solid #e6ecf0;
+  border-bottom: 1px solid rgba(0,0,0,0.25);
   display: flex;
+  height: 46px;
   justify-content: space-between;
-  margin-bottom: 10px;
-  padding: 10px;
   width: 100%;
 }
 
 .navigation a {
+  color: gray;
   display: inline-block;
+  margin-left: -2px;
+  margin-right: -2px;
   padding-left: 10px;
   padding-right: 10px;
   text-decoration: none;
   text-transform: capitalize;
+}
+
+.navigation a:hover {
+  border-bottom: 2px solid #1c94e0;
+  color: deepskyblue;
+  padding-bottom: 12px;
+  transition: all .15s ease-in-out;
 }
 
 .navigation a.active {
@@ -237,6 +250,11 @@ img {
 
 .navigation .login-nav {
   display: inline-block;
+}
+
+.navigation .login-nav,
+.navigation .main {
+  margin-top: 10px;
 }
 
 .profile .actions {
@@ -258,13 +276,8 @@ img {
 }
 
 .site-heading {
-  color: black;
+  height: 46px;
   text-decoration: none;
-}
-
-.site-heading:hover {
-  color: deepskyblue;
-  text-decoration: underline;
 }
 
 .site-heading:visit {
@@ -272,7 +285,9 @@ img {
 }
 
 .site-heading h1 {
-  margin-left: 10px;
+  color: deepskyblue;
+  margin: 10px;
+  padding: 0;
 }
 
 .sr-only {

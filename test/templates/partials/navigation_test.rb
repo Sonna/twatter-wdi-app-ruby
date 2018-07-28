@@ -7,6 +7,7 @@ class NavigationTemplateTest < Minitest::Test
 
   def test_render_navigation_partial_template
     subject = erb(:"partials/navigation")
-    assert_match %r{<nav id="navbar" class="navigation">(.|\n)*</nav>}, subject
+    assert_match %r{<nav id="navbar" class="navigation.*">(.|\n)*</nav>},
+                 subject
   end
 end

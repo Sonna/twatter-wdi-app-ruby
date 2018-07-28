@@ -8,31 +8,12 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
 </head>
 <body>
-  <a class="site-heading" href="/">
-    <h1>Twatter</h1>
-  </a>
-
-  <header>
+  <header class="header">
     <%= erb :"partials/navigation" %>
   </header>
 
   <section class="container">
     <%= yield %>
   </section>
-
-  <script>
-    window.onscroll = function() { stickyBar() };
-
-    var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
-
-    function stickyBar() {
-      if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky")
-      } else {
-        navbar.classList.remove("sticky");
-      }
-    }
-  </script>
 </body>
 </html>

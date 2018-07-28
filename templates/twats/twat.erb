@@ -26,6 +26,11 @@
   </header>
   <section class="body">
     <p><%= message %></p>
+    <% if message.length > Twat::MAX_CHARS %>
+      <p class="read-more">
+        <a href="#" class="button">Read More</a>
+      </p>
+    <% end %>
   </section>
   <footer class="foot actions">
     <form action="/twats/<%= twat_id %>" class="action">

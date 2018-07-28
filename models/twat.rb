@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Twat < ActiveRecord::Base
+  MAX_CHARS = 280
+
   belongs_to :user, counter_cache: true
 
   has_many :comments

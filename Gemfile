@@ -5,6 +5,7 @@ ruby "2.5.1"
 
 gem "activerecord"
 gem "bcrypt"
+gem "coveralls", require: false
 gem "pg"
 gem "rake"
 gem "sinatra"

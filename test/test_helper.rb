@@ -3,6 +3,9 @@
 ROOT_PATH = File.expand_path("..", __dir__)
 $LOAD_PATH.push ROOT_PATH
 
+require "coveralls"
+Coveralls.wear!
+
 require "minitest/autorun"
 require "rack/test"
 

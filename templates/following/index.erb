@@ -1,7 +1,7 @@
 <section class="followers">
   <h2>
-    All those Following
     <a href="/users/<%= username %>">@<%= username %></a>
+    Following
   </h2>
   <% following.each do |follower| %>
     <%= erb :"users/profile_card", locals: follower.attributes %>

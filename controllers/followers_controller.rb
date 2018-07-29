@@ -14,7 +14,8 @@ class FollowersController < ApplicationController
       @followers = User.find_by(username: params[:username]).followers
     end
     erb :"followers/index", layout: :"layouts/default", locals: {
-      followers: @followers
+      followers: @followers,
+      username: params[:username]
     }
   end
 end

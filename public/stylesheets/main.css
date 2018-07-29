@@ -12,7 +12,10 @@ h1, h2, h3, h4, h5 {
 }
 
 header.header {
-  height: 60px;
+  background-color: white;
+  border-bottom: 1px solid #e6ecf0;
+  border-bottom: 1px solid rgba(0,0,0,0.25);
+  height: 46px;
 }
 
 img {
@@ -59,13 +62,13 @@ img {
 
 #twat-form .form-user-img {
   margin-left: 20px;
+  margin-top: 8px;
   width: 30px;
 }
 
 #twat-form .form-user-img,
 .card img {
   border-radius: 50%;
-  display: inline-block;
   position: absolute;
 }
 
@@ -73,10 +76,11 @@ img {
   width: 100%;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 960px) {
   .activity-container {
     margin-left: 5px;
-    width: 70%;
+    width: 590px;
+    /*width: 70%;*/
   }
 }
 
@@ -139,6 +143,10 @@ img {
   max-height: 150px;
   position: relative;
   overflow: hidden;
+}
+
+.card .body > p {
+  margin-top: 0;
 }
 
 .card .body .read-more {
@@ -213,6 +221,20 @@ img {
   width: 100%;
 }
 
+@media (min-width: 960px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1200px;
+  }
+}
+
 .head button {
   display: inline-block;
 }
@@ -248,7 +270,7 @@ img {
   width: 100%;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 960px) {
   .followers .user-profile-card {
     width: 25%;
   }
@@ -279,13 +301,20 @@ img {
 }
 
 .navigation {
-  background-color: white;
-  border-bottom: 1px solid #e6ecf0;
-  border-bottom: 1px solid rgba(0,0,0,0.25);
   display: flex;
   height: 46px;
   justify-content: space-between;
   width: 100%;
+}
+
+@media (min-width: 1200px) {
+  .navigation {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 1200px;
+  }
 }
 
 .navigation a {
@@ -351,10 +380,10 @@ img {
   width: 100%;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 960px) {
   .profile-container {
     margin-right: 5px;
-    width: 27%;
+    width: 320px;
   }
 }
 
@@ -429,6 +458,7 @@ img {
 .user-counts {
   display: flex;
   justify-content: space-around;
+  padding: 5px;
   width: 100%;
 }
 
@@ -440,23 +470,76 @@ img {
 }
 
 .user-counts .followings-count,
+.user-counts .followers-count,
+.user-counts .twats-count {
+  color: deepskyblue;
+  font-size: 1.2em;
+}
+
+.user-counts .followings-count,
 .user-counts .followings-count-heading,
 .user-counts .followers-count,
 .user-counts .followers-count-heading,
 .user-counts .twats-count,
 .user-counts .twats-count-heading {
   display: block;
+  font-weight: bold;
+}
+
+.user-counts .followings-count-heading,
+.user-counts .followers-count-heading,
+.user-counts .twats-count-heading {
+  font-size: 0.9em;
 }
 
 .user-profile-card {
   background-color: white;
-  padding: 10px;
+}
+
+@media (min-width: 960px) {
+  .user-profile-card {
+    width: 300px;
+    margin-left: 20px;
+  }
+}
+
+.user-profile-card a {
+  color: gray;
+  text-decoration: none;
+}
+
+.user-profile-card img {
+  border: 4px solid white;
+  height: 72px;
+  margin-top: -45px;
+  vertical-align: top;
+  width: 72px;
 }
 
 .user-profile-card .actions {
   display: flex;
   justify-content: space-around;
   padding: 10px;
+}
+
+.user-profile-card .background {
+  background-position: 0 50%;
+  background-size: 100%;
+  background-color: deepskyblue;
+  display: block;
+  height: 95px;
+  margin-top: -1px;
+  padding: 0;
+  width: 100%;
+}
+
+.user-profile-card .content {
+  padding: 15px;
+}
+
+.user-profile-card .follow button {
+  background-color: white;
+  color: skyblue;
 }
 
 .user-profile-card .follow button,
@@ -469,11 +552,6 @@ img {
   padding: 10px;
 }
 
-.user-profile-card .follow button {
-  background-color: white;
-  color: skyblue;
-}
-
 .user-profile-card .follow button:hover,
 .user-profile-card .unfollow button:hover {
   background-color: darkblue;
@@ -481,30 +559,28 @@ img {
   cursor: pointer;
 }
 
-.user-profile-card .unfollow button {
-  background-color: deepskyblue;
-  color: white;
-}
-
-.user-profile-card img {
-  border-radius: 50%;
-  display: inline-block;
-  width: 100px;
+.user-profile-card .fullname {
+  color: black;
+  font-size: 1.3em;
 }
 
 .user-profile-card .name {
   display: inline-block;
+  margin: 0;
   vertical-align: bottom;
-}
-
-.user-profile-card .name a {
-  text-decoration: none;
 }
 
 .user-profile-card .name a:hover {
   text-decoration: underline;
 }
 
+.user-profile-card .unfollow button {
+  background-color: deepskyblue;
+  color: white;
+}
+
 .user-profile-card .username {
   display: block;
+  font-size: 1em;
+  font-weight: normal;
 }

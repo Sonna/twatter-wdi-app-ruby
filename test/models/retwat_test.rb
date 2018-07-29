@@ -36,11 +36,11 @@ module Models
       subject&.destroy
     end
 
-    def test_retwated_by_returns_user_fullname
+    def test_retwated_by_returns_retwatter_user
       twat = Twat.create(message: "A popular message", user_id: @ronald.id)
       subject = described_class.create(twat_id: twat.id, user_id: @susan.id)
 
-      assert_equal subject.retwated_by, "Test susan"
+      assert_equal subject.retwated_by, @susan
     ensure
       subject&.destroy
       twat&.destroy

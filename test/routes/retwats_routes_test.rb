@@ -2,7 +2,7 @@
 
 require "test/test_helper"
 
-class RetwatRoutesTest < CurrentUserSession
+class RetwatsRoutesTest < CurrentUserSession
   def setup
     super
     @retwatable_user = User.create(

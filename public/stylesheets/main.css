@@ -213,10 +213,6 @@ img {
   width: 100%;
 }
 
-.head {
-  padding: 10px;
-}
-
 .head button {
   display: inline-block;
 }
@@ -362,8 +358,22 @@ img {
   }
 }
 
-.retwated_by {
+.retwated-by {
+  color: gray;
   display: block;
+  font-size: 0.9em;
+  margin-bottom: 5px;
+  margin-left: 36px;
+}
+
+.retwated-by a {
+  color: gray;
+  text-decoration: none;
+}
+
+.retwated-by a:hover {
+  color: deepskyblue;
+  text-decoration: underline;
 }
 
 .site-heading {

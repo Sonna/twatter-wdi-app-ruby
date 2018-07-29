@@ -1,10 +1,14 @@
 <article id="twat-<%= twat_id %>" class="twat card">
+  <% if retwated_by %>
+    <span class="retwated-by">
+      <i class="far fa-retweet"></i>
+      <a href="/users/<%= retwated_by.username %>"><%= retwated_by.name %></a>
+      Retwated
+    </span>
+  <% end %>
   <img src="<%= image_url %>">
   <div class="card-container">
   <header class="head">
-    <% if retwated_by %>
-      <span class="retwated_by">Retwated by <%= retwated_by %></span>
-    <% end %>
     <h1>
       <%= name %>
       <a class="at-username" href="/users/<%= username %>">@<%= username %></a>

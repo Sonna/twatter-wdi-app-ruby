@@ -54,8 +54,6 @@ class Twat < ActiveRecord::Base
     !user.id.zero? && twatter_id != user.id &&
       !user.following.pluck(:user_id).include?(twatter_id) &&
       Retwat.where(user_id: user.following.pluck(:user_id), twat_id: id).first
-            &.user&.name
-    #   twatter.name
   end
   # rubocop:enable Metrics/AbcSize
 end

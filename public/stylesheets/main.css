@@ -487,6 +487,14 @@ img {
   vertical-align: bottom;
 }
 
+.user-profile-card .name a {
+  text-decoration: none;
+}
+
+.user-profile-card .name a:hover {
+  text-decoration: underline;
+}
+
 .user-profile-card .username {
   display: block;
 }

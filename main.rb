@@ -37,25 +37,12 @@ class TwatterApp < Sinatra::Base
 
   helpers SessionsHelpers
 
-  # before { redirect "/login" unless session[:user_id] }
-
   set :method_override, true
   set(:views, File.join(settings.root, "templates"))
 
   get("/") do
     @twats = Twat.filtered(current_user).most_recent.limit(10)
     @twats = Twat.default(current_user) if logged_in?
-    if params["twatter_id"]
-      @twats = @twats.posted_by(params["twatter_id"]).most_recent
-    end
     erb :index
   end
-
-  # post("/likes") { redirect "/timeline?twat_id=#{params["twat_id"]}" }
-
-  # post("/retwats") { redirect "/timeline?twat_id=#{retwat.id}" }
-
-  # get("/messages/new") do
-  #   erb :"message/new", locals { twatter_id: params["twatter_id"] }
-  # end
 end

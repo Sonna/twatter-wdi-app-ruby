@@ -1,12 +1,12 @@
 <article class="user-profile-card">
   <img src="<%= image_url %>">
-  <h1 class="name">
-    <%= name %>
+  <h1 class="names">
+    <a href="/users/<%= username %>" class="fullname"><%= name %></a>
     <a href="/users/<%= username %>" class="username"><%= "@#{username}" %></a>
   </h1>
   <section class="user-counts">
     <div class="twats">
-      <a href="/?twatter_id=<%= id %>" class="twats-count-heading">Twats</a>
+      <a href="/users/<%= username %>" class="twats-count-heading">Twats</a>
       <span class="twats-count"><%= twats_count %></span>
     </div>
     <div class="following">

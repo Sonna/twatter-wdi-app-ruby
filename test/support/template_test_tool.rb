@@ -26,9 +26,9 @@ module TemplateTestTool
       @attributes = hash
     end
 
-    LocalUser = Struct.new(:id, :username, :image_url)
+    LocalUser = Struct.new(:id, :image_url, :name, :username)
     def current_user
-      LocalUser.new(nil, nil, nil)
+      LocalUser.new(nil, nil, nil, nil)
     end
 
     def erb(path, *args)

@@ -88,3 +88,13 @@ CREATE TABLE comments (
   created_at TIMESTAMP DEFAULT NOW(),
   updated_at TIMESTAMP DEFAULT NOW()
 );
+
+DROP TABLE IF EXISTS messages;
+CREATE TABLE messages (
+  id SERIAL4 PRIMARY KEY,
+  content TEXT,
+  to_id INTEGER,
+  from_id INTEGER,
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW()
+);

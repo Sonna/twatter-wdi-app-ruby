@@ -44,6 +44,14 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "updated_at", default: -> { "now()" }
   end
 
+  create_table "messages", id: :serial, force: :cascade do |t|
+    t.text "content"
+    t.integer "to_id"
+    t.integer "from_id"
+    t.datetime "created_at", default: -> { "now()" }
+    t.datetime "updated_at", default: -> { "now()" }
+  end
+
   create_table "retwats", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "twat_id"

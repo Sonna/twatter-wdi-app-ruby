@@ -9,10 +9,11 @@ module Models
                           username: "tedd", password: "password")
       @ursa = User.create(email: "ursa@test.com", name: "Ursa User",
                           username: "ursa", password: "password")
-      @subject = Message.new(to: @tedd, from: @ursa, content: "is a test")
+      @subject = Message.create(to: @tedd, from: @ursa, content: "is a test")
     end
 
     def teardown
+      @subject.destroy
       @tedd.destroy
       @ursa.destroy
     end
@@ -28,6 +29,20 @@ module Models
 
       def test_contains_content
         assert_equal @subject.content, "is a test"
+      end
+
+      def test_retrieve_a_conversation_just_between_tedd_and_ursa
+        tedd2ursa = Message.create(from: @tedd, to: @ursa, content: "is a test")
+        other = Message.create(content: "ignore this message to & from no-one")
+
+        conversation = Message.between(@tedd, @ursa)
+
+        assert_includes conversation, @subject
+        assert_includes conversation, tedd2ursa
+        refute_includes conversation, other
+      ensure
+        tedd2ursa&.destroy
+        other&.destroy
       end
     end
   end

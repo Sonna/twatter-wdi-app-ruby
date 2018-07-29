@@ -3,28 +3,32 @@
 require "test_helper"
 
 module Models
-  describe Message do
-    let :tedd do
-      User.create(email: "tedd@test.com", name: "Tedd User", username: "tedd",
-                  password: "password")
+  class MessageTest < Minitest::Test
+    def setup
+      @tedd = User.create(email: "tedd@test.com", name: "Tedd User",
+                          username: "tedd", password: "password")
+      @ursa = User.create(email: "ursa@test.com", name: "Ursa User",
+                          username: "ursa", password: "password")
+      @subject = Message.new(to: @tedd, from: @ursa, content: "is a test")
     end
 
-    let :ursa do
-      User.create(email: "ursa@test.com", name: "Ursa User", username: "ursa",
-                  password: "password")
+    def teardown
+      @tedd.destroy
+      @ursa.destroy
     end
 
-    let(:subject) { Message.new(to: tedd, from: ursa, content: "is a test") }
+    class WhenAMessageIsSentFromUrsaToTedd < MessageTest
+      def test_is_from_ursa
+        assert_equal @subject.from, @ursa
+      end
 
-    after do
-      tedd.destroy
-      ursa.destroy
-    end
+      def test_is_to_tedd
+        assert_equal @subject.to, @tedd
+      end
 
-    describe "when a message is sent from Ursa to Tedd" do
-      it("is from Ursa") { expect(subject.from).must_equal(ursa) }
-      it("is to Tedd") { expect(subject.to).must_equal(tedd) }
-      it("contains content") { expect(subject.content).must_equal("is a test") }
+      def test_contains_content
+        assert_equal @subject.content, "is a test"
+      end
     end
   end
 end

@@ -179,6 +179,7 @@ img {
 }
 
 .comments {
+  position: relative;
   width: 100%;
 }
 

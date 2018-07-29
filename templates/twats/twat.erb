@@ -33,7 +33,7 @@
     <% end %>
   </section>
   <footer class="foot actions">
-    <form action="/twats/<%= twat_id %>" class="action">
+    <form action="/twats/<%= twat_id %>" class="action comment">
       <button>
         <i class="far fa-comment-alt"></i>
         <span class="sr-only">Comments</span>
@@ -41,7 +41,7 @@
       </button>
     </form>
     <% if like %>
-      <form action="/likes/<%= like.id %>" method="post" class="action unlike-<%= like.id %>" >
+      <form action="/likes/<%= like.id %>" method="post" class="action unlike unlike-<%= like.id %>" >
         <input type="hidden" name="_method" value="delete">
         <button>
           <i class="fas fa-heart"></i>
@@ -50,7 +50,7 @@
         </button>
       </form>
     <% else %>
-      <form action="/likes" method="post" class="action like-<%= twat_id %>">
+      <form action="/likes" method="post" class="action like like-<%= twat_id %>">
         <input type="hidden" name="twat_id" value="<%= twat_id %>">
         <button>
           <i class="far fa-heart"></i>
@@ -61,7 +61,7 @@
     <% end %>
     <% unless current_user.id == twatter_id %>
       <% if retwat %>
-        <form action="/retwats/<%= retwat.id %>" method="post" class="action unretwat-<%= retwat.id %>" >
+        <form action="/retwats/<%= retwat.id %>" method="post" class="action unretwat unretwat-<%= retwat.id %>" >
           <input type="hidden" name="_method" value="delete">
           <button>
             <i class="fas fa-retweet"></i>
@@ -70,7 +70,7 @@
           </button>
         </form>
       <% else %>
-        <form action="/retwats" method="post" class="action retwat-<%= twat_id %>">
+        <form action="/retwats" method="post" class="action retwat retwat-<%= twat_id %>">
           <input type="hidden" name="twat_id" value="<%= twat_id %>">
           <button>
             <i class="far fa-retweet"></i>
@@ -79,7 +79,7 @@
           </button>
         </form>
       <% end %>
-      <form action="/messages/new" class="action">
+      <form action="/messages/new" class="action direct-message">
         <input type="hidden" name="twatter_id" value="<%= twatter_id %>">
         <button>
           <i class="far fa-envelope"></i>

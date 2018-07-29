@@ -1,7 +1,24 @@
 <nav id="navbar" class="navigation sticky">
   <section class="main">
-    <a href="/" class="<%= request.path_info == "/" ? "active" : "" %>">Home</a>
-    <a href="/twats" class="<%= request.path_info == "/twats" ? "active" : "" %>">Twats</a>
+    <a href="/" class="<%= request.path_info == "/" ? "active" : "" %>">
+      <i class="fas fa-home"></i>
+      Home
+    </a>
+    <a href="/twats" class="<%= request.path_info == "/twats" ? "active" : "" %>">
+      <i class="fas fa-bolt"></i>
+      <!-- Moments -->
+      Twats
+    </a>
+    <!--
+    <a href="/nofications" class="<%= request.path_info == "/nofications" ? "active" : "" %>">
+      <i class="far fa-bell"></i>
+      Nofications
+    </a>
+    <a href="/messages" class="<%= request.path_info == "/messages" ? "active" : "" %>">
+      <i class="far fa-envelope"></i>
+      Messages
+    </a>
+     -->
   </section>
   <section>
     <a class="site-heading" href="/">

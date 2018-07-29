@@ -13,12 +13,13 @@ class NavigationTemplateTest < Minitest::Test
 
   def test_navigation_bar_sets_home_link_as_active_on_homepage
     subject = erb(:"partials/navigation", LocalsStub.new(:@path_info => "/"))
-    assert_match %r{<a href="/" class="active">Home</a>}, subject
+    assert_match %r{<a href="/" class="active">(.|\n)*Home(.|\n)*</a>}, subject
   end
 
   def test_navigation_bar_sets_twats_link_as_active_on_twats_page
     subject = erb(:"partials/navigation",
                   LocalsStub.new(:@path_info => "/twats"))
-    assert_match %r{<a href="/twats" class="active">Twats</a>}, subject
+    assert_match %r{<a href="/twats" class="active">(.|\n)*Twats(.|\n)*</a>},
+                 subject
   end
 end

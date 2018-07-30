@@ -38,7 +38,7 @@ class SessionsApp < Sinatra::Base
     user = User.new(email: params[:email], password: params[:password],
                     username: params[:username], name: params[:name])
     if user.valid? && user.save
-      # session[:user_id] = user.id
+      session[:user_id] = user.id
       redirect "/"
     end
     erb :signup, layout: :authenticate

@@ -6,22 +6,16 @@ class Twat < ActiveRecord::Base
   after_create :increase_count
   after_destroy :decrease_count
 
-  # belongs_to :user, counter_cache: true
-  # belongs_to :profile, counter_cache: true, class_name: "Profile",
-  belongs_to :profile, class_name: "Profile",
-                       primary_key: "user_id", foreign_key: "user_id"
-
-  # has_one :profile, through: :user, source: :profile
+  belongs_to :profile, primary_key: "user_id", foreign_key: "user_id",
+                       class_name: "Profile"
 
   has_many :comments
   has_many :likes
   has_many :retwats
 
-  # alias_attribute :twatter, :user
   alias_attribute :twatter, :profile
   alias_attribute :twatter_id, :user_id
 
-  # delegate :image_url, to: :user, allow_nil: true
   delegate :image_url, to: :profile, allow_nil: true
 
   scope :default, lambda { |user|

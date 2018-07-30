@@ -11,8 +11,6 @@ CREATE TABLE users (
   updated_at TIMESTAMP DEFAULT NOW()
 );
 
-INSERT INTO users (id, username, name, email, password_digest) VAlUES (0, 'null_user', 'Null User', 'null_user@sinatra.app', 'impossible-hash');
-
 DROP TABLE IF EXISTS profiles;
 CREATE TABLE profiles (
   id SERIAL4 PRIMARY KEY,

@@ -1,4 +1,5 @@
 -- Migrations
+INSERT INTO users (id, username, name, email, password_digest) VAlUES (0, 'null_user', 'Null User', 'null_user@sinatra.app', 'impossible-hash');
 
 -- Thu 26 Jul 2018 13:56:11 AEST
 ALTER TABLE users ADD followers_count INTEGER DEFAULT(0);

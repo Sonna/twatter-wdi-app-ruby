@@ -52,6 +52,16 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "updated_at", default: -> { "now()" }
   end
 
+  create_table "profiles", id: :serial, force: :cascade do |t|
+    t.integer "user_id"
+    t.string "image_url", limit: 400
+    t.integer "twats_count", default: 0
+    t.integer "followers_count", default: 0
+    t.integer "following_count", default: 0
+    t.datetime "created_at", default: -> { "now()" }
+    t.datetime "updated_at", default: -> { "now()" }
+  end
+
   create_table "retwats", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "twat_id"
@@ -74,12 +84,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "name", limit: 300, null: false
     t.string "email", limit: 300, null: false
     t.string "password_digest", limit: 400, null: false
-    t.integer "twats_count", default: 0
-    t.integer "followers_count", default: 0
-    t.integer "following_count", default: 0
     t.datetime "created_at", default: -> { "now()" }
     t.datetime "updated_at", default: -> { "now()" }
-    t.string "image_url", limit: 500
   end
 
 end

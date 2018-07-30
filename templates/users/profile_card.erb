@@ -21,16 +21,16 @@
       <span class="followers-count"><%= followers_count %></span>
     </div>
   </section>
-  <% unless current_user.id == id %>
+  <% unless current_user.id == user_id %>
     <section class="actions">
-      <% if current_user.following.pluck(:user_id).include?(id) %>
-        <form action="/follows/<%= id %>" method="post" class="action unfollow unfollow-<%= id %>" >
+      <% if current_user.following.pluck(:user_id).include?(user_id) %>
+        <form action="/follows/<%= user_id %>" method="post" class="action unfollow unfollow-<%= user_id %>" >
           <input type="hidden" name="_method" value="delete">
           <button>Unfollow</button>
         </form>
       <% else %>
-        <form action="/follows" method="post" class="action follow follow-<%= id %>">
-          <input type="hidden" name="follower_id" value="<%= id %>">
+        <form action="/follows" method="post" class="action follow follow-<%= user_id %>">
+          <input type="hidden" name="follower_id" value="<%= user_id %>">
           <button>Follow</button>
         </form>
         <% end %>

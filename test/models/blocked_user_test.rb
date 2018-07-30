@@ -24,11 +24,11 @@ module Models
     end
 
     def test_neil_has_blocking_association_with_olive
-      assert_includes @neil.blocking, @olive
+      assert_includes @neil.blocking.pluck(:user_id), @olive.id
     end
 
     def test_olive_has_blocker_association_with_neil
-      assert_includes @olive.blockers, @neil
+      assert_includes @olive.blockers.pluck(:user_id), @neil.id
     end
   end
 end

@@ -9,7 +9,7 @@ module TemplateTestTool
 
     STUBBED_HELPERS = %w[logged_in?].freeze
     STUBBED_LOCALS = %w[
-      id twat_id comments_count likes retwats twatter_id message
+      id twat_id comments_count likes retwats twatter_id message user_id
     ].freeze
 
     def self.create_method

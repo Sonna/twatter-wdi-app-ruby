@@ -18,6 +18,7 @@ require "controllers/users_controller"
 require "models/comment"
 require "models/like"
 require "models/message"
+require "models/profile"
 require "models/retwat"
 
 class TwatterApp < Sinatra::Base

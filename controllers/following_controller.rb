@@ -9,7 +9,7 @@ class FollowingController < ApplicationController
 
   get "/following/:username" do
     authorized?
-    @following = current_user.following
+    @following = current_user.profile.following
     if params[:username]
       @following = User.find_by(username: params[:username]).following
     end

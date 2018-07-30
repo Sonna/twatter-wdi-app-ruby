@@ -1,36 +1,50 @@
 # frozen_string_literal: true
 
-require "models/blocked_user"
-require "models/followed_user"
+require "models/profile"
 
 class User < ActiveRecord::Base
   has_secure_password
 
-  has_many :blocked_users
-  has_many :blockers, through: :blocked_users
-  has_many :inverse_blocked_users, class_name: "BlockedUser",
-                                   foreign_key: "blocker_id"
-  has_many :inverse_blockers, through: :inverse_blocked_users, source: :user
-  # has_many :comments
+  before_destroy :destroy_profile
+  after_create :create_profile
 
-  has_many :followed_users
-  has_many :followers, through: :followed_users
-  has_many :inverse_followed_users, class_name: "FollowedUser",
-                                    foreign_key: "follower_id"
-  has_many :inverse_followers, through: :inverse_followed_users, source: :user
+  has_one :profile
 
   has_many :likes
   # has_many :messages
   # has_many :twats
 
-  alias_attribute :blocking, :inverse_blockers
-  alias_attribute :following, :inverse_followers
+  delegate :blocking, to: :profile
+  delegate :blockers, to: :profile
+  delegate :followers, to: :profile
+  delegate :following, to: :profile
+
+  delegate :image_url, to: :profile
+  delegate :followers_count, to: :profile
+  delegate :following_count, to: :profile
+  delegate :twats_count, to: :profile
 
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true
   validates :username, presence: true, uniqueness: true
 
-  def image_url
-    attributes["image_url"] || "/images/avatar3.png"
+  def attributes
+    super.merge(
+      "image_url" => image_url,
+      "followers_count" => followers_count,
+      "following_count" => following_count,
+      "twats_count" => twats_count
+    )
+  end
+
+  private
+
+  def create_profile
+    Profile.create(user_id: id)
+  end
+
+  def destroy_profile
+    # Profile.find_by(user_id: id).destroy
+    profile&.destroy
   end
 end

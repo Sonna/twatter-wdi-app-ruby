@@ -44,7 +44,8 @@ class BlockedUsersControllerTest < CurrentUserSession
     get "/users/#{@blockable_user.username}"
 
     # assert last_response.body.include?("@#{@blockable_user.username}")
-    assert last_response.body.include?("blockable_user's twat")
+    assert last_response.body.include?("blockable_user's twat"),
+           last_response.body
   ensure
     blocked_user&.destroy
   end

@@ -1,6 +1,6 @@
 <section class="profile-container">
   <% if logged_in? %>
-    <%= erb :"users/profile_card", locals: current_user.attributes %>
+    <%= erb :"users/profile_card", locals: current_user.profile.attributes %>
   <% end %>
 </section>
 

@@ -6,28 +6,24 @@ CREATE TABLE users (
   username VARCHAR(300) NOT NULL,
   name VARCHAR(300) NOT NULL,
   email VARCHAR(300) NOT NULL,
-  image_url VARCHAR(500),
   password_digest VARCHAR(400) NOT NULL,
-  twats_count INTEGER DEFAULT(0),
-  followers_count INTEGER DEFAULT(0),
-  following_count INTEGER DEFAULT(0),
   created_at TIMESTAMP DEFAULT NOW(),
   updated_at TIMESTAMP DEFAULT NOW()
 );
 
 INSERT INTO users (id, username, name, email, password_digest) VAlUES (0, 'null_user', 'Null User', 'null_user@sinatra.app', 'impossible-hash');
 
--- CREATE TABLE user_profiles (
---   id SERIAL4 PRIMARY KEY,
---   user_id INTEGER,
---   name VARCHAR(300) NOT NULL,
---   image_url VARCHAR(400),
---   twats_count INTEGER DEFAULT(0),
---   followers_count INTEGER DEFAULT(0),
---   following_count INTEGER DEFAULT(0),
---   created_at TIMESTAMP DEFAULT NOW(),
---   updated_at TIMESTAMP DEFAULT NOW()
--- );
+DROP TABLE IF EXISTS profiles;
+CREATE TABLE profiles (
+  id SERIAL4 PRIMARY KEY,
+  user_id INTEGER,
+  image_url VARCHAR(400),
+  twats_count INTEGER DEFAULT(0),
+  followers_count INTEGER DEFAULT(0),
+  following_count INTEGER DEFAULT(0),
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW()
+);
 
 DROP TABLE IF EXISTS twats;
 CREATE TABLE twats (

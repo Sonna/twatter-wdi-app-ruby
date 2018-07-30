@@ -3,21 +3,28 @@
 class Twat < ActiveRecord::Base
   MAX_CHARS = 280
 
-  belongs_to :user, counter_cache: true
+  after_create :increase_count
+  after_destroy :decrease_count
+
+  # belongs_to :user, counter_cache: true
+  # belongs_to :profile, counter_cache: true, class_name: "Profile",
+  belongs_to :profile, class_name: "Profile",
+                       primary_key: "user_id", foreign_key: "user_id"
+
+  # has_one :profile, through: :user, source: :profile
 
   has_many :comments
   has_many :likes
   has_many :retwats
 
-  alias_attribute :twatter, :user
+  # alias_attribute :twatter, :user
+  alias_attribute :twatter, :profile
   alias_attribute :twatter_id, :user_id
 
-  delegate :image_url, to: :user, allow_nil: true
+  # delegate :image_url, to: :user, allow_nil: true
+  delegate :image_url, to: :profile, allow_nil: true
 
   scope :default, lambda { |user|
-    # filtered(user).following(user).or(posted_by(user.id)).most_recent
-    # filtered(user).following(user).or(retwats(user)).most_recent
-    # filtered(user).following(user).most_recent
     filtered(user).following(user).or(filtered(user).retwats(user)).most_recent
                   .distinct.limit(10)
   }
@@ -56,4 +63,14 @@ class Twat < ActiveRecord::Base
       Retwat.where(user_id: user.following.pluck(:user_id), twat_id: id).first
   end
   # rubocop:enable Metrics/AbcSize
+
+  private
+
+  def increase_count
+    profile&.increment!(:twats_count)
+  end
+
+  def decrease_count
+    profile&.decrement!(:twats_count)
+  end
 end

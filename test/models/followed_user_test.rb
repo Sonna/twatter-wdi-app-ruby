@@ -24,7 +24,7 @@ module Models
     end
 
     def test_grace_has_following_association_with_harry
-      assert_includes @grace.following, @harry
+      assert_includes @grace.following.pluck(:user_id), @harry.id
     end
 
     def test_grace_has_following_count_of_one
@@ -32,7 +32,7 @@ module Models
     end
 
     def test_harry_has_follower_association_with_grace
-      assert_includes @harry.followers, @grace
+      assert_includes @harry.followers.pluck(:user_id), @grace.id
     end
 
     def test_harry_has_followers_count_of_one

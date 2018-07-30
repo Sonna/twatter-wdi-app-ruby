@@ -22,6 +22,7 @@ ActiveRecord, with at least 3 models with associations (excluding the User).
 - CSS3
 - JavaScript
 - Ruby
+- Sinatra
 - ActiveRecord
 - Git
 - GitHub.com

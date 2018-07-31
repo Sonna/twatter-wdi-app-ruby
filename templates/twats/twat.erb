@@ -38,27 +38,27 @@
   </section>
   <footer class="foot actions">
     <form action="/twats/<%= twat_id %>" class="action comment">
-      <button>
+      <button class="tooltip">
         <i class="far fa-comment-alt"></i>
-        <span class="sr-only">Comments</span>
+        <span class="tooltiptext">Reply</span>
         <span class="count"><%= comments_count %></span>
       </button>
     </form>
     <% if like %>
       <form action="/likes/<%= like.id %>" method="post" class="action unlike unlike-<%= like.id %>" >
         <input type="hidden" name="_method" value="delete">
-        <button>
+        <button class="tooltip">
           <i class="fas fa-heart"></i>
-          <span class="sr-only">Unlike</span>
+          <span class="tooltiptext">Unlike</span>
           <span class="count"><%= likes_count %></span>
         </button>
       </form>
     <% else %>
       <form action="/likes" method="post" class="action like like-<%= twat_id %>">
         <input type="hidden" name="twat_id" value="<%= twat_id %>">
-        <button>
+        <button class="tooltip">
           <i class="far fa-heart"></i>
-          <span class="sr-only">Like</span>
+          <span class="tooltiptext">Like</span>
           <span class="count"><%= likes_count %></span>
         </button>
       </form>
@@ -67,27 +67,27 @@
       <% if retwat %>
         <form action="/retwats/<%= retwat.id %>" method="post" class="action unretwat unretwat-<%= retwat.id %>" >
           <input type="hidden" name="_method" value="delete">
-          <button>
+          <button class="tooltip">
             <i class="fas fa-retweet"></i>
-            <span class="sr-only">Unretwat</span>
+            <span class="tooltiptext">Unretwat</span>
             <span class="count"><%= retwats_count %></span>
           </button>
         </form>
       <% else %>
         <form action="/retwats" method="post" class="action retwat retwat-<%= twat_id %>">
           <input type="hidden" name="twat_id" value="<%= twat_id %>">
-          <button>
+          <button class="tooltip">
             <i class="far fa-retweet"></i>
-            <span class="sr-only">Retwat</span>
+            <span class="tooltiptext">Retwat</span>
             <span class="count"><%= retwats_count %></span>
           </button>
         </form>
       <% end %>
       <form action="/messages/new" class="action direct-message">
         <input type="hidden" name="twatter_id" value="<%= twatter_id %>">
-        <button>
+        <button class="tooltip">
           <i class="far fa-envelope"></i>
-          <span class="sr-only">Direct Message</span>
+          <span class="tooltiptext">Direct Message</span>
         </button>
       </form>
     <% end %>

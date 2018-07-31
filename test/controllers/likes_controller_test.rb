@@ -31,7 +31,7 @@ class LikesControllerTest < CurrentUserSession
     # assert last_response.body.include?("Like 1")
     # refute last_response.body.include?("Like 0")
     assert_match Regexp.new(
-      '<span class="sr-only">Unlike</span>(.|\n)*' \
+      '<span class=".*">Unlike</span>(.|\n)*' \
         "<span class=\"count\">1</span>"
     ), last_response.body
   ensure
@@ -50,7 +50,7 @@ class LikesControllerTest < CurrentUserSession
     # assert last_response.body.include?("Like 0")
     # refute last_response.body.include?("Like 1")
     assert_match Regexp.new(
-      '<span class="sr-only">Like</span>(.|\n)*' \
+      '<span class=".*">Like</span>(.|\n)*' \
         "<span class=\"count\">0</span>"
     ), last_response.body
   ensure

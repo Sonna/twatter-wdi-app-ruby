@@ -439,6 +439,76 @@ img {
   z-index: 1;
 }
 
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  background-color: #555;
+  border-radius: 6px;
+  color: #fff;
+  padding: 5px 0;
+  text-align: center;
+  visibility: hidden;
+  width: 130px;
+
+  /* Position the tooltip text */
+  bottom: 125%;
+  left: 50%;
+  margin-left: -65px;
+  position: absolute;
+  z-index: 1;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.comment .tooltip .tooltiptext {
+  margin-left: -30px;
+  width: 60px;
+}
+.direct-message .tooltip .tooltiptext {
+  margin-left: -65px;
+  width: 130px;
+}
+.like .tooltip .tooltiptext {
+  margin-left: -25px;
+  width: 50px;
+}
+.retwat .tooltip .tooltiptext {
+  margin-left: -35px;
+  width: 70px;
+}
+.unlike .tooltip .tooltiptext {
+  margin-left: -30px;
+  width: 60px;
+}
+.unretwat .tooltip .tooltiptext {
+  margin-left: -40px;
+  width: 80px;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+  border-color: #555 transparent transparent transparent;
+  border-style: solid;
+  border-width: 5px;
+  content: "";
+  left: 50%;
+  margin-left: -5px;
+  position: absolute;
+  top: 100%;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  opacity: 1;
+  visibility: visible;
+}
+
 .user-chip {
   display: inline-block;
   position: absolute;
